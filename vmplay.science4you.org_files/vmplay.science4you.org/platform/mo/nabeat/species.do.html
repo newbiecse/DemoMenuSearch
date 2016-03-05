@@ -25,6 +25,8 @@
       <![endif]-->
       <!-- Colorbox default -->
       <link rel="stylesheet" type="text/css" href="platform/common/scripts/colorbox/colorbox.css">
+      <!-- select2 default -->
+      <link rel="stylesheet" type="text/css" href="platform/common/scripts/select2/css/select2.css">      
       <!-- End_Style -->
       <!-- Begin_Head -->
       <script language="JavaScript" src="platform/common/scripts/authortools.js"></script>
@@ -40,7 +42,15 @@
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.cookie.js"></script>
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.hotkeys.js"></script>
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.jstree.js"></script>
-      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.form.js"></script><script language="JavaScript" type="text/javascript" src="platform/common/scripts/colorbox/jquery.colorbox-min.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.form.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/colorbox/jquery.colorbox-min.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/select2/js/select2.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/searchmenu.js"></script>
+      <script language="JavaScript" type="text/javascript">
+         $(function(){
+            SearchMenu.init();
+         });
+      </script>
       <script type="text/javascript">
          <!-- First_global_variables -->
          
@@ -157,8 +167,7 @@
          		alert(result);
          		document.getElementById(id).innerHTML = result;
          	}
-         }
-         
+         }                  
          
       </script>
    </head>
@@ -290,6 +299,14 @@
             <!-- Begin_pagecontrol -->
             <div id="pagecontrol"
                class="threeCol">
+
+               <div>
+                  <input style="display: none" type="text" size="27" />
+                  <select id="dropdowncategory">
+                     <option>Select menu</option>
+                  </select>
+               </div>
+
                <p>1</p>
                <form name="pagecontrol" method="post" action="">
                   <input type="hidden" name="lastVar" value="56300">
