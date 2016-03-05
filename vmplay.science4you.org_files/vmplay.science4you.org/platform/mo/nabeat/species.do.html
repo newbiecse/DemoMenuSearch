@@ -1,0 +1,2342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="de">
+   <!-- benutzt menuh.css, struktur.css und s4you.css und neue css-basierte Aufteilung -->
+   <head>
+      <title>
+         naturbeobachtung.at : der Treffpunkt für Naturbeobachtung in Österreich
+      </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="robots" content="nofollow">
+      <meta name="revisit-after" content="15 days">
+      <!-- Begin_Meta -->
+      <!-- End_Meta -->
+      <!-- Begin_Style -->
+      <link rel="stylesheet" type="text/css" media="screen" href="platform/common/styles/struktur.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="platform/common/styles/s4you.css">
+      <link rel="stylesheet" type="text/css" href="platform/common/styles/global.css">
+      <link rel="stylesheet" type="text/css" href="platform/common/styles/taximage.css">
+      <link rel="stylesheet" type="text/css" href="platform/mo/nabeat/common/skins/styles/skin.css">
+      <link rel="stylesheet" type="text/css" href="platform/mo/nabeat/common/skins/styles/menu.css">
+      <link rel="SHORTCUT ICON" href="platform/mo/nabeat/common/skins/nabeat.favicon.ico">
+      <!--[if lt IE 7]>
+      <style type="text/css" media="screen">
+         body{behavior:url(/platform/common/styles/csshover.htc); font-size:100%;}
+      </style>
+      <![endif]-->
+      <!-- Colorbox default -->
+      <link rel="stylesheet" type="text/css" href="platform/common/scripts/colorbox/colorbox.css">
+      <!-- End_Style -->
+      <!-- Begin_Head -->
+      <script language="JavaScript" src="platform/common/scripts/authortools.js"></script>
+      <script language="JavaScript" src="platform/common/scripts/global.js"></script>
+      <script language="JavaScript" src="platform/mo/nabeat/common/scripts/nabeat.js"></script>
+      <!-- End_Head -->
+      <!-- Begin_Head -->
+      <!-- End_Head -->
+      <!-- Begin_Script -->
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/i8n.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery-1.8.2.min.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.cookie.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.hotkeys.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.jstree.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.form.js"></script><script language="JavaScript" type="text/javascript" src="platform/common/scripts/colorbox/jquery.colorbox-min.js"></script>
+      <script type="text/javascript">
+         <!-- First_global_variables -->
+         
+         // sessionId für js verfügbar
+         
+         var globSid = "11228D9D62B240F85A55B75923367C27"; 
+         
+         // credits:http://www.willmaster.com/
+         // position for layers
+         var cX = 0; var cY = 0; var rX = 0; var rY = 0;
+         function UpdateCursorPosition(e){ cX = e.pageX; cY = e.pageY;}
+         function UpdateCursorPositionDocAll(e){ cX = event.clientX; cY = event.clientY;}
+         if(document.all) { document.onmousemove = UpdateCursorPositionDocAll; }
+         else { document.onmousemove = UpdateCursorPosition; }
+         
+         
+         //
+         
+         //<!-- Begin_Openlayers olload muss implementiert sein. -->
+         
+         function olload(){var ol=false;}
+         
+         
+         <!-- End_Openlayers -->
+         
+         
+         
+      </script>			
+      <!-- End_Script -->
+      <script type="text/javascript"	src="platform/common/scripts/popup.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+         	// big pictures as overlays
+         	$('.bigimage').colorbox({
+         		next : 'nächstes',
+         		close : 'schließen',
+         		previous : 'voriges',
+         		maxWidth : '100%',
+         		maxHeight : '100%',
+         		rel : 'bigimagegroup'
+         	});
+         	// Login-Overlay
+         	$('a.login-window').click(function() {
+         
+         		//Getting the variable's value from a link 
+         		var loginBox = $(this).attr('href');
+         
+         		//Fade in the Popup
+         		$(loginBox).fadeIn(300);
+         
+         		//Set the center alignment padding + border see css style
+         		var popMargTop = ($(loginBox).height() + 24) / 2;
+         		var popMargLeft = ($(loginBox).width() + 24) / 2;
+         
+         		$(loginBox).css({
+         			'margin-top' : -popMargTop,
+         			'margin-left' : -popMargLeft
+         		});
+         
+         		// Add the mask to body
+         		$('body').append('<div id="mask"></div>');
+         		$('#mask').fadeIn(300);
+         
+         		return false;
+         	});
+         
+         	//When clicking on the button close or the mask layer the popup closed
+         	$('a.close, #mask').live('click', function() {
+         		$('#mask , .login-popup').fadeOut(300, function() {
+         			$('#mask').remove();
+         		});
+         		return false;
+         	});
+         });
+         
+         
+         // Ajax vorbereiten - 29.9.15
+         var xmlHttpObject = false;
+         
+         if (typeof XMLHttpRequest != 'undefined') {
+         	xmlHttpObject = new XMLHttpRequest();
+         }
+         if (!xmlHttpObject) {
+         	try {
+         		xmlHttpObject = new ActiveXObject("Msxml2.XMLHTTP");
+         	} catch (e) {
+         		try {
+         			xmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+         		} catch (e) {
+         			xmlHttpObject = null;
+         		}
+         	}
+         }
+         
+         
+         function loadContentSync(url,id) {
+         	xmlHttpObject.open('get', url, false);
+         	xmlHttpObject.send();
+         	document.getElementById(id).innerHTML = xmlHttpObject.responseText;
+         	return false;
+         }
+         
+         function loadContent(url,id) {
+         	xmlHttpObject.open('get', url, true);
+         	alert(url);
+         	xmlHttpObject.onreadystatechange = handleContent(id);
+         	xmlHttpObject.send();
+         	return false;
+         }
+         
+         function handleContent(id) {
+         	if (xmlHttpObject.readyState == 4 && xmlhttp.status==200) {
+         		var result = xmlHttpObject.responseText;
+         		alert(result);
+         		document.getElementById(id).innerHTML = result;
+         	}
+         }
+         
+         
+      </script>
+   </head>
+   <body onload="olload();" >
+      <script type="text/javascript">function showWait() {
+         if (document.all) {
+         	document.all.pageprogress.style.removeAttribute(
+         			'visibility', 'false');
+         } else {
+         	document.getElementById('pageprogress').style.visibility = 'visible';
+         }
+         }
+         // Popups simulieren
+         function toggle(div_id) {
+         var el = document.getElementById(div_id);
+         if (el.style.display == 'none') {
+         	el.style.display = 'block';
+         } else {
+         	el.style.display = 'none';
+         }
+         }
+         
+      </script>
+      <div id="pageprogress">
+         <img
+            src="platform/common/images/indicators/loading-book.gif"
+            align="middle" alt="">
+         <p align="center"><b>Bitte warten ...</b></p>
+      </div>
+      <div id="blanket" style="display: none;"></div>
+      <div id="popupDiv" style="display: none;"></div>
+      <div id="popupDetailDiv" style="display: none;"></div>
+      <div id="languageLayer" style="display: none;"></div>
+      <div id="loginLayer" style="display: none;"></div>
+      <div id="detailLayer" style="display: none;"></div>
+      <div id="memberLayer" style="display: none;"></div>
+      <div id="geocodeLayer" style="display: none;"></div>
+      <div id="speciessheetLayer" style="display: none;"></div>
+      <div id="qseditLayer" style="display: none;"></div>
+      <div id="gathlistLayer" style="display: none;"></div>
+      <!-- Overlay-Area 21.12.12 -->
+      <div id="overlay" style="display: none;"></div>
+      <div id="wrapper">
+         <!-- Begin_header -->
+         <div id="heading">
+            <div id="pageheader">
+               <div id="logo"><a
+                  href="platform/mo/nabeat/index.do"
+                  target="_top"><img src="platform/mo/nabeat/common/images/nabeat_logo_2010_163x90.jpg"
+                  alt="naturbeobachtung.at"
+                  title="naturbeobachtung.at"
+                  border="0"><br></a></div>
+               <div id="nonlogo">
+                  <div id="pathway"><a href="platform/mo/nabeat/home/index.do" target="_top" class="PathwayCurrent">naturbeobachtung.at</a></div>
+                  <div id="sitemap"></div>
+                  <div id="loggedinfo">
+                     <p class="LoginPrompt">&nbsp;&nbsp;&nbsp;
+                        <a href="platform/mo/nabeat/register/status.do?project=nabeat" class="login-window">Anmelden / Registrieren</a>
+                     </p>
+                  </div>
+                  <div id="menuarea">
+                     <div id="mainmenu">
+                        <div class="menu">
+                           <ul>
+                              <li><a href="platform/mo/nabeat/home.do?doHome" target="_top" onclick="javascript:showWait()">Startseite</a></li>
+                              <li><a href="platform/mo/nabeat/home.do?doDataHome" target="_top" onclick="javascript:showWait()">Beobachtung</a></li>
+                              <li>
+                                 <a href="platform/mo/nabeat/cmstext.do?pp=artgroup&colclass=threeCol" target="_top" onclick="javascript:showWait()">Arten</a>
+                                 <ul>
+                                    <li><a href="platform/mo/nabeat/species.do?doSpecSheetPage" target="_top" class="species2CSS" onclick="javascript:showWait()">Artsteckbriefe</a></li>
+                                    <li><a href="platform/mo/nabeat/species/maps.do" target="_top" class="mapsCSS" onclick="javascript:showWait()">Karten</a></li>
+                                    <li><a href="platform/mo/nabeat/species/maps/storedMaps.do?maptype=76" target="_top" class="mapsplateCSS" onclick="javascript:showWait()">Vergleichskarten</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <a href="platform/mo/nabeat/statistics.do?doLastDays" target="_top" onclick="javascript:showWait()">Statistik</a>
+                                 <ul>
+                                    <li><a href="platform/mo/nabeat/statistics.do?doLastDays&icc=AT" target="_top" class="currentCSS" onclick="javascript:showWait()">Neues</a></li>
+                                    <li><a href="platform/mo/nabeat/statistics/celebrities.do?doWatchlevel" target="_top" class="taxalistCSS" onclick="javascript:showWait()">Artenliste</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <a href="platform/mo/nabeat/cmstext.do?pp=imfokus&colclass=threeCol" target="_top" onclick="javascript:showWait()">Im Fokus</a>
+                                 <ul>
+                                    <li><a href="platform/mo/nabeat/faltertage-at/home.do?doHome" target="_top" class="falterinwienCSS" onclick="javascript:showWait()">Abenteuer Faltertage</a></li>
+                                    <li><a href="platform/mo/nabeat/avesat/home.do?doHome" target="_top" class="avesatCSS" onclick="javascript:showWait()">Vögel Österreichs</a></li>
+                                    <li><a href="platform/mo/nabeat/bombus/home.do?doHome" target="_top" class="colatCSS" onclick="javascript:showWait()">Hummeln Österreichs</a></li>
+                                    <li><a href="platform/mo/nabeat/herpeto-at/home.do?doHome" target="_top" class="colatCSS" onclick="javascript:showWait()">Amphibien Österreichs</a></li>
+                                    <li><a href="platform/mo/nabeat/igelinwien/home.do?doHome" target="_top" class="igelinwienCSS" onclick="javascript:showWait()">Igel-in-Wien</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <a href="platform/mo/nabeat/forum/threadList.do?tab=s2generalforum&id=441" target="_top" onclick="javascript:showWait()">Forum</a>
+                                 <ul>
+                                    <li><a href="platform/mo/nabeat/forum/threadList.do?tab=s2generalforum&id=441" target="_top" class="forum2CSS" onclick="javascript:showWait()">Forum</a></li>
+                                    <li><a href="platform/mo/nabeat/forum/plate.do?tab=3758" target="_top" class="forumplateCSS" onclick="javascript:showWait()">Fototafel</a></li>
+                                    <li><a href="platform/mo/nabeat/forum/threadList.do?doForumList" target="_top" class="forum2CSS" onclick="javascript:showWait()">Forumsübersicht</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <a href="platform/mo/nabeat/cmstext.do?pp=imprint&colclass=threeCol" target="_top" onclick="javascript:showWait()">Info</a>
+                                 <ul>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=naturschutzbund&colclass=threeCol" target="_top" class="naturschutzbundCSS" onclick="javascript:showWait()">Der Naturschutzbund</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=partner&colclass=threeCol" target="_top" class="partnerCSS" onclick="javascript:showWait()">Partner</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=sponsoren&colclass=threeCol" target="_top" class="sponsorenCSS" onclick="javascript:showWait()">Sponsoren</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=experten&colclass=threeCol" target="_top" class="expertenCSS" onclick="javascript:showWait()">Unsere Experten</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=presse&colclass=threeCol" target="_top" class="expertenCSS" onclick="javascript:showWait()">Presse</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=datarelease&colclass=threeCol" target="_top" class="expertenCSS" onclick="javascript:showWait()">Datenverwendung</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?doHelp" target="_top" class="helpCSS" onclick="javascript:showWait()">Hilfe</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?doLinks" target="_top" class="linksCSS" onclick="javascript:showWait()">Links</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?doHistory" target="_top" class="historyCSS" onclick="javascript:showWait()">Historie</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=imprint&colclass=threeCol" target="_top" class="imprintCSS" onclick="javascript:showWait()">Impressum</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?pp=howto&colclass=threeCol" target="_top" class="qsjobsCSS" onclick="javascript:showWait()">Wie melde ich ?</a></li>
+                                    <li><a href="platform/mo/nabeat/cmstext.do?doFaq" target="_top" class="faqCSS" onclick="javascript:showWait()">FAQ</a></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div id="submenu"></div>
+                  </div>
+                  <div id="version"><span>naturbeobachtung.at V 2.09</span></div>
+               </div>
+            </div>
+         </div>
+         <!-- End_header --><!-- Begin_pagebase -->
+         <div id="pagebase"
+            class="threeCol">
+            <!-- Begin_pagecontrol -->
+            <div id="pagecontrol"
+               class="threeCol">
+               <p>1</p>
+               <form name="pagecontrol" method="post" action="">
+                  <input type="hidden" name="lastVar" value="56300">
+                  <p class="StructureHint"></p>
+                  <ul class="taxalist" >
+                     <li class="dispgroup">V&ouml;gel
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49080">
+                           <p>Amsel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Turdus merula)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=56531">
+                           <p>Bartgeier
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Gypaetus barbatus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49203">
+                           <p>Bergfink
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Fringilla montifringilla)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49218">
+                           <p>Birkenzeisig
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Carduelis flammea)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49157">
+                           <p>Blaumeise
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parus caeruleus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49201">
+                           <p>Buchfink
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Fringilla coelebs)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=56300">
+                           <p>Buntspecht
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Dendrocopos major)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49176">
+                           <p>Eichelh&auml;her
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Garrulus glandarius)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48953">
+                           <p>Eisvogel
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Alcedo atthis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49214">
+                           <p>Erlenzeisig
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Carduelis spinus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49192">
+                           <p>Feldsperling
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Passer montanus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48961">
+                           <p>Fichtenkreuzschnabel
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Loxia curvirostra)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48980">
+                           <p>Gartenrotschwanz
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Phoenicurus phoenicurus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49232">
+                           <p>Gimpel
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Pyrrhula pyrrhula)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49241">
+                           <p>Goldammer
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Emberiza citrinella)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48637">
+                           <p>Graureiher
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Ardea cinerea)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49207">
+                           <p>Gr&uuml;nfink
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Carduelis chloris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49153">
+                           <p>Haubenmeise
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parus cristatus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49235">
+                           <p>Kernbei&szlig;er
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Coccothraustes coccothraustes)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48821">
+                           <p>Kiebitz
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Vanellus vanellus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49026">
+                           <p>Mehlschwalbe
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Delichon urbica)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49133">
+                           <p>Neunt&ouml;ter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lanius collurio)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49050">
+                           <p>Raubw&uuml;rger
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lanius excubitor)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49024">
+                           <p>Rauchschwalbe
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Hirundo rustica)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48773">
+                           <p>Rebhuhn
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Perdix perdix)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49065">
+                           <p>Rotkehlchen
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Erithacus rubecula)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49148">
+                           <p>Schwanzmeise
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Aegithalos caudatus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49002">
+                           <p>Schwarzspecht
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Dryocopus martius)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48641">
+                           <p>Schwarzstorch
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Ciconia nigra)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48721">
+                           <p>Seeadler
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Haliaeetus albicilla)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48745">
+                           <p>Steinadler
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Aquila chrysaetos)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49212">
+                           <p>Stieglitz
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Carduelis carduelis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49182">
+                           <p>Tannenh&auml;her
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Nucifraga caryocatactes)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49155">
+                           <p>Tannenmeise
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parus ater)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48936">
+                           <p>Uhu
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Bubo bubo)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49082">
+                           <p>Wacholderdrossel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Turdus pilaris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49049">
+                           <p>Wasseramsel
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Cinclus cinclus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=49130">
+                           <p>Weidenmeise
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parus montanus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48643">
+                           <p>Wei&szlig;storch
+                           </p>
+                           <p class="sciencename">(=&nbsp;Ciconia ciconia)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=48993">
+                           <p>Wiedehopf
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Upupa epops)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">S&auml;ugetiere
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2688">
+                           <p>Alpenmurmeltier
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Marmota marmota)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2693">
+                           <p>Biber
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Castor fiber)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2679">
+                           <p>Eichh&ouml;rnchen
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Sciurus vulgaris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1820">
+                           <p>Feldhamster
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Cricetus cricetus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2670">
+                           <p>Feldhase
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lepus europaeus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1836">
+                           <p>Fischotter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lutra lutra)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2885">
+                           <p>G&auml;mse
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rupicapra rupicapra)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2711">
+                           <p>Haselmaus
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Muscardinus avellanarius)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2561">
+                           <p>Igel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2571">
+                           <p>Maulwurf
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Talpa europaea)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2627">
+                           <p>Mausohr
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Myotis myotis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2801">
+                           <p>Rotfuchs
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Vulpes vulpes)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2708">
+                           <p>Siebenschl&auml;fer
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Glis glis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1818">
+                           <p>Ziesel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Spermophilus citellus)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Amphibien
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2168">
+                           <p>Alpensalamander
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Salamandra atra)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2484">
+                           <p>Erdkr&ouml;te
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Bufo bufo)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2457">
+                           <p>Feuersalamander
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Salamandra salamandra)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2186">
+                           <p>Gelbbauchunke
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Bombina variegata)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2495">
+                           <p>Grasfrosch
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rana temporaria)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1569">
+                           <p>Europ&auml;ischer Laubfrosch
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Hyla arborea)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2202">
+                           <p>Moorfrosch
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rana arvalis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2203">
+                           <p>Springfrosch
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rana dalmatina)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2466">
+                           <p>Teichmolch
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Triturus vulgaris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2199">
+                           <p>Wechselkr&ouml;te
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Bufo viridis)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Reptilien
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2083">
+                           <p>Europ&auml;ische Sumpfschildkr&ouml;te
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Emys orbicularis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2514">
+                           <p>Kreuzotter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Vipera berus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2119">
+                           <p>&Ouml;stliche Smaragdeidechse
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lacerta viridis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2517">
+                           <p>Ringelnatter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Natrix natrix)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2527">
+                           <p>Rotwangen-Schmuckschildkr&ouml;te
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Trachemys sripta elegans)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2151">
+                           <p>W&uuml;rfelnatter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Natrix tessellata)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Fische
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=59235">
+                           <p>Bachforelle
+                           </p>
+                           <p class="sciencename">(=&nbsp;Salmo trutta fario)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Krebstiere
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=4779">
+                           <p>Steinkrebs
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Austropotamobius torrentium)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=6398">
+                           <p>Urzeitkrebs
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Triops cancriformis)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Schmetterlinge
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=506">
+                           <p>Admiral
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Vanessa atalanta)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1601">
+                           <p>Apollo-Falter
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parnassius apollo)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=496">
+                           <p>Aurorafalter
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Anthocharis cardamines)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=46983">
+                           <p>Distelfalter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Vanessa cardui)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1652">
+                           <p>Hochalpen-Apollo
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parnassius phoebus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=109770">
+                           <p>Kleiner Fuchs
+                           </p>
+                           <p class="sciencename">(=&nbsp;Nymphalis urticae)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1675">
+                           <p>Landk&auml;rtchen
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Araschnia levana)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1653">
+                           <p>Osterluzeifalter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Zerynthia polyxena)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=533">
+                           <p>Schachbrettfalter
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Melanargia galathea)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=477">
+                           <p>Schwalbenschwanz
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Papilio machaon)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1603">
+                           <p>Schwarzer Apollo
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Parnassius mnemosyne)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=109769">
+                           <p>Tagpfauenauge
+                           </p>
+                           <p class="sciencename">(=&nbsp;Nymphalis io)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=504">
+                           <p>Trauermantel
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Nymphalis antiopa)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=636">
+                           <p>Wiener Nachtpfauenauge
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Saturnia pyri)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=1657">
+                           <p>Zitronenfalter
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Gonepteryx rhamni)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">K&auml;fer
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2244">
+                           <p>Alpenbock
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rosalia alpina)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2243">
+                           <p>Eremit
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Osmoderma eremita)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=32117">
+                           <p>Gelbrandk&auml;fer
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Dytiscus marginalis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=33902">
+                           <p>Gro&szlig;er Leuchtk&auml;fer
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lampyris noctiluca)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=4775">
+                           <p>Hirschk&auml;fer
+                              <img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lucanus cervus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=36027">
+                           <p>Kartoffelk&auml;fer
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Leptinotarsa decemlineata)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=35075">
+                           <p>Siebenpunkt-Marienk&auml;fer
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Coccinella septempunctata)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Fangschrecken
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=13036">
+                           <p>Gottesanbeterin
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Mantis religiosa)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Geradfl&uuml;gler
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=26169">
+                           <p>Sumpfschrecke
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Mecostethus grossus)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Netzfl&uuml;gler
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=37337">
+                           <p>Gemeine Florfliege
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Chrysoperla carnea)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=6286">
+                           <p>Gew&ouml;hnlicher Ameisenl&ouml;we
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Myrmeleon formicarius)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Libellen
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=2387">
+                           <p>Blaugr&uuml;ne Mosaikjungfer
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Aeshna cyanea)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Hautfl&uuml;gler
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=149">
+                           <p>Europ&auml;ische Honigbiene
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Apis mellifera)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=91493">
+                           <p>Hornisse
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Vespa crabro)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=91007">
+                           <p>Rote Waldameise
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Formica rufa)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=154">
+                           <p>Steinhummel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Bombus lapidarius)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=72">
+                           <p>Zahntrost-S&auml;gehornbiene
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Melitta tricincta)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Wanzen
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=90801">
+                           <p>Rote Mordwanze
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rhynocoris iracundus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=90006">
+                           <p>Knappe
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Spilostethus saxatilis)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Spinnen
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=87068">
+                           <p>Wespenspinne
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Argiope bruennichi)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=87672">
+                           <p>Gr&uuml;ne Huschspinne
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Micrommata virescens)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=62681">
+                           <p>Gerandete Jagdspinne
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Dolomedes fimbriatus)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Weichtiere
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=4787">
+                           <p>Flussperlmuschel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Margaritifera margaritifera)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=85240">
+                           <p>Weinbergschnecke
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Helix pomatia)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Niedere Tiere
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=134496">
+                           <p>Gemeiner Regenwurm
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lumbricus terrestris)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">B&auml;ume &amp; Str&auml;ucher
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=134421">
+                           <p>Dorflinde (Artengruppe)
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Tilia (partim))</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=35428">
+                           <p>Eibe
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Taxus baccata)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=30544">
+                           <p>Elsbeere
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Sorbus torminalis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=29317">
+                           <p>Schlehe
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Prunus spinosa)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=21810">
+                           <p>Sumpf-Porst
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rhododendron tomentosum)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=25154">
+                           <p>Zirbe
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Pinus cembra)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Bl&uuml;tenpflanzen
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=15159">
+                           <p>Alpen-Aster
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Aster alpinus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=6363">
+                           <p>Arnika
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Arnica montana)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=16533">
+                           <p>Edelwei&szlig;
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Leontopodium alpinum)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=29415">
+                           <p>Essig-Rose
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Rosa gallica)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=24267">
+                           <p>Fieberklee
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Menyanthes trifoliata)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=4385">
+                           <p>Frauenschuh
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Cypripedium calceolus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=130161">
+                           <p>Fr&uuml;hlingslichtblume
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Colchicum vernum)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=25587">
+                           <p>Gemeines Zittergras
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Briza media)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=28271">
+                           <p>Gew&ouml;hnliche K&uuml;chenschelle
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Pulsatilla vulgaris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=20093">
+                           <p>Herbstzeitlose
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Colchicum autumnale)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=33384">
+                           <p>K&ouml;nigskerze (Artengruppe)
+                           </p>
+                           <p class="sciencename">(=&nbsp;Verbascum)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=8302">
+                           <p>Langbl&auml;ttriger Sonnentau
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Drosera longifolia)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=21335">
+                           <p>Rundbl&auml;ttriger Sonnentau
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Drosera rotundifolia)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=8077">
+                           <p>Schachblume
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Fritillaria meleagris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=8366">
+                           <p>Sibirische Schwertlilie
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Iris sibirica)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=15323">
+                           <p>Silberdistel
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Carlina acaulis)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=22704">
+                           <p>Stengelloser Kalk-Enzian
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Gentiana clusii)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=8402">
+                           <p>Stern-Narzisse
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Narcissus radiiflorus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=4327">
+                           <p>Sumpfgladiole
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Gladiolus palustris)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=24027">
+                           <p>T&uuml;rkenbund-Lilie
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Lilium martagon)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=31068">
+                           <p>Zimbelkraut
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Cymbalaria muralis)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Flechten
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=55861">
+                           <p>Gelbe Wandsch&uuml;sselflechte
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Xanthoria parietina)</p>
+                        </a>
+                     </li>
+                     <li class="dispgroup">Pilze
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=82884">
+                           <p>Birkenporling
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Piptoporus betulinus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=84105">
+                           <p>Nelkenschwindling
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Marasmius oreades)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=83164">
+                           <p>Netzstieliger Hexenr&ouml;hrling
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Boletus luridus)</p>
+                        </a>
+                     </li>
+                     <li class="taxalist">
+                        <a href="platform/mo/nabeat/species.do?doSpecSheetPage&amp;ptnameId=81463">
+                           <p>Perlpilz
+                              <img src="platform/common/images/icons/picture.available.small.gif"
+                                 border="0" title="Bild(er) vorhanden" alt="Bild(er) vorhanden" /><img src="platform/common/images/icons/text.available.small.gif"
+                                 border="0" title="Text vorhanden" alt="Text vorhanden" />
+                           </p>
+                           <p class="sciencename">(=&nbsp;Amanita rubescens)</p>
+                        </a>
+                     </li>
+                  </ul>
+               </form>
+               <script language="JavaScript">document.pagecontrol['selected'+document.pagecontrol.lastVar.value].src = "platform/common/images/layoutelements/onepixel.gif";
+                  document.pagecontrol['selected56300'].src = '/platform/common/images/indicators/tree.monitoring.selected.gif';
+                  document.pagecontrol.lastVar.value = '56300';
+               </script>
+            </div>
+            <!-- End_pagecontrol --><!-- Begin_main -->
+            <div id="main"
+               class="threeCol">
+               <!-- Begin_pageactions -->
+               <div id="pageaction"
+                  class="threeCol"><a name="#top" id="top"></a></div>
+               <!-- End_pageactions -->
+               <div id="content"
+                  class="threeCol">
+                  <!-- Begin_content -->
+                  <div class="StructureHint">
+                     <p class="StructureHint"><img src="platform/common/images/flags/24.12/oesterreich_fl_a0.gif" border="0" title="Österreich" />&nbsp;Artsteckbriefe
+                     </p>
+                  </div>
+                  <div class="StructureHint">
+                     <p class="StructureHint">Autoren
+                        &nbsp;des Artsteckbriefes:&nbsp;
+                        Christine&nbsp;P&uuml;hringer
+                        ,&nbsp;
+                        Stefanie&nbsp;Ebnicher
+                        ,&nbsp;
+                        Klaus&nbsp;Michalek
+                        ,&nbsp;
+                        Magdalena&nbsp;Meikl
+                        ,&nbsp;
+                        Gernot&nbsp;Neuwirth
+                     </p>
+                  </div>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="SpeciesTitle">Dendrocopos major
+                              &nbsp;<span style="font-variant:small-caps"></span>
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table border="0" cellspacing="2" cellpadding="0">
+                     <tr align="right">
+                        <td colspan="3">
+                           <p><a
+                              href="javascript:showElements('speciessheetmoreimages')">weitere Bilder
+                              </a>
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td valign="top">
+                           <div class="imageframe">
+                              <table width="172" border="0" cellspacing="0" cellpadding="0">
+                                 <tr>
+                                    <td bgcolor="#EEEEEE" align="center" valign="middle" height="172" colspan="2"><a	href="http://s4img.science4you.org/images/preview/nabeat/s2/S28813_451x670.jpg" class="bigimage"   
+                                       title="Josef Limberger:Buntspecht"><img src='http://s4img.science4you.org/images/preview/nabeat/s2/S28813_114x170.jpg'
+                                       border="0" 
+                                       alt=''
+                                       title=''></a></td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#FFFFFF" colspan="2"><img src="platform/common/images/layoutelements/onepixel.gif" width="1"
+                                       height="1" alt=""></td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#DDDDDD" colspan="2">
+                                       <p class="ImageTitle">Buntspecht
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#DDDDDD">
+                                       <p class="ImageTitle">&copy;&nbsp;
+                                          Josef Limberger
+                                       </p>
+                                    </td>
+                                    <td align="right" bgcolor="#DDDDDD">
+                                       <p class="ImageTitle">&nbsp;
+                                       </p>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                        <td valign="top">
+                           <div class="imageframe">
+                              <table width="172" border="0" cellspacing="0" cellpadding="0">
+                                 <tr>
+                                    <td bgcolor="#EEEEEE" align="center" valign="middle" height="172" colspan="2"><a	href="http://s4img.science4you.org/images/preview/nabeat/s2/S28815_980x644.jpg" class="bigimage"   
+                                       title="Oesterreichische Bundesforste:Buntspecht"><img src='http://s4img.science4you.org/images/preview/nabeat/s2/S28815_170x112.jpg'
+                                       border="0" 
+                                       alt=''
+                                       title=''></a></td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#FFFFFF" colspan="2"><img src="platform/common/images/layoutelements/onepixel.gif" width="1"
+                                       height="1" alt=""></td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#DDDDDD" colspan="2">
+                                       <p class="ImageTitle">Buntspecht
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#DDDDDD">
+                                       <p class="ImageTitle">&copy;&nbsp;
+                                          Oesterreichische Bundesforste
+                                       </p>
+                                    </td>
+                                    <td align="right" bgcolor="#DDDDDD">
+                                       <p class="ImageTitle">&nbsp;
+                                       </p>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                        <td valign="top">
+                           <div class="imageframe">
+                              <table width="172" border="0" cellspacing="0" cellpadding="0">
+                                 <tr>
+                                    <td bgcolor="#EEEEEE" align="center" valign="middle" height="172" colspan="2"><a	href="http://s4img.science4you.org/images/preview/nabeat/s2/S28816_733x670.jpg" class="bigimage"   
+                                       title="Robert Hofrichter:Buntspecht-Hoehle"><img src='http://s4img.science4you.org/images/preview/nabeat/s2/S28816_170x155.jpg'
+                                       border="0" 
+                                       alt=''
+                                       title=''></a></td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#FFFFFF" colspan="2"><img src="platform/common/images/layoutelements/onepixel.gif" width="1"
+                                       height="1" alt=""></td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#DDDDDD" colspan="2">
+                                       <p class="ImageTitle">Buntspecht-Hoehle
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td bgcolor="#DDDDDD">
+                                       <p class="ImageTitle">&copy;&nbsp;
+                                          Robert Hofrichter
+                                       </p>
+                                    </td>
+                                    <td align="right" bgcolor="#DDDDDD">
+                                       <p class="ImageTitle">&nbsp;
+                                       </p>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="3">&nbsp;</td>
+                     </tr>
+                  </table>
+                  <div id="speciessheetmoreimages">
+                     <p><a
+                        href="javascript:hideElements('speciessheetmoreimages')">Bilder wieder ausblenden</a></p>
+                     <div class="imageframe">
+                        <table width="172" border="0" cellspacing="0" cellpadding="0">
+                           <tr>
+                              <td bgcolor="#EEEEEE" align="center" valign="middle" height="172" colspan="2"><a	href="http://s4img.science4you.org/images/preview/nabeat/s3/S39365_440x670.jpg" class="bigimage"   
+                                 title="Josef Limberger 4722 Peuerbach:Buntspechtm&auml;nnchen"><img src='http://s4img.science4you.org/images/preview/nabeat/s3/S39365_112x170.jpg'
+                                 border="0" 
+                                 alt=''
+                                 title=''></a></td>
+                           </tr>
+                           <tr>
+                              <td bgcolor="#FFFFFF" colspan="2"><img src="platform/common/images/layoutelements/onepixel.gif" width="1"
+                                 height="1" alt=""></td>
+                           </tr>
+                           <tr>
+                              <td bgcolor="#DDDDDD" colspan="2">
+                                 <p class="ImageTitle">Buntspechtm&auml;nnchen
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td bgcolor="#DDDDDD">
+                                 <p class="ImageTitle">&copy;&nbsp;
+                                    Josef Limberger 4722 Peuerbach
+                                 </p>
+                              </td>
+                              <td align="right" bgcolor="#DDDDDD">
+                                 <p class="ImageTitle">&nbsp;
+                                 </p>
+                              </td>
+                           </tr>
+                        </table>
+                     </div>
+                  </div>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Beschreibung
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Christine Pühringer" 
+                              alt="Autor: Christine Pühringer" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Das Gefieder des Buntspechts ist oberseits schwarz gefärbt mit zwei großen weißen Flügelflecken und unterseits gelblich-grau. Die Unterschwanzdecken sind lebhaft rot gefärbt. Beide Geschlechter haben einen gelblichen Stirnfleck, die Männchen einen roten Genickfleck und Jungtiere einen roten Scheitel. Die Wangen sind weiß gefärbt. An den Halsseiten finden sich schwarze Bartstreifen.<br><br>Buntspechte haben spitze, gebogene Krallen an ihren Kletterfüßen, womit sie sich an der Borke festhalten. Zwei Krallen sind dabei nach vorne und zwei nach hinten gerichtet. Ihre ungewöhnlich dicke Haut schützt sie vor Insektenstichen. Eine federnde, gelenkartige Verbindung zwischen der breiten Schnabelbasis und dem Schädel federt die Erschütterung ab, die beim Zimmern der Spechthöhle entsteht. Die dabei aufrechte und stabile Haltung am Baum wird durch starke Muskeln unterstützt, die die stützenden Schwanzfedern kontrollieren. Um das Einatmen des entstehenden Sägemehls zu verhindern, sind die Nasenlöcher des Buntspechts mit feinen Federn überwachsen.
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Größe
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Christine Pühringer" 
+                              alt="Autor: Christine Pühringer" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Der Buntspecht ist etwa 23 cm groß und zwischen 60 und 90 g schwer. Seine Flügelspannweite beträgt etwa zwischen 34 und 39 cm.
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Hilfe zur Bestimmung
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Klaus Michalek" 
+                              alt="Autor: Klaus Michalek" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Überwiegend Kartierung von trommelnden und rufenden Vögeln; Beobachtung von Männchen und Weibchen zusammen, Verhalten und Richtungsbewegungen für Zuordnung zu Revieren wichtig.<br>Termine: 1. Anfang März bis Mitte März (Trommeln); 2. Ende März bis Anfang April (Trommeln, Höhlenbau); 3. Mitte April bis Ende April (Trommeln, Höhlenbau).
+                              Günstige Tageszeit: ab Sonnenaufgang bis Mittag; nicht bei Frost < -5°C, Windstärke >4 oder stärkeren Niederschlägen.<br><br>Auswertung: Brutverdacht:<br>-	zweimalige Feststellung von Trommeln im Abstand von mindestens 7 Tagen, eine davon von Anfang März bis Ende April;<br>-	einmalige Feststellung von Trommeln und Feststellung eines Altvogels im Abstand von mindestens 7 Tagen, davon eine Feststellung Anfang März bis Ende April;<br>-	einmalige Beobachtung eines Paares<br>-	Höhlenbau<br><br>Brutnachweis: insbesondere<br>-	fütternde Altvögel<br>-	laut bettelrufende Jungvögel (zur Artbestimmung Fütterung Abwarten)
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Ähnliche Arten
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Christine Pühringer" 
+                              alt="Autor: Christine Pühringer" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Der dem Buntspecht sehr ähnliche Blutspecht (<i>Picoides syriacus</i>) dringt neuerdings aus Südeuropa weiter nach Norden vor. <br>Als weitere »Buntspechte« derselben Gattung leben im europäischen Verbreitungsgebiet des Buntspechts der Mittelspecht (<i>Picoides medius</i> er wird nur maximal 20 cm groß, sein Scheitel ist anders als beim adulten Buntspecht zur Gänze rot), der Kleinspecht (<i>Picoides minor</i>) und die größte Art, der Weißrückenspecht (<i>Picoides leucotos</i>).<br>Da Buntspecht-Weibchen keinen roten Nackenfleck haben, erinnern die Jungvögel mit ganz rotem Scheitel stärker an den kleineren Mittelspecht. Dieser hat jedoch eine deutlicher Flankenstrichelung, andere Gesichtszeichnung und eine nicht auf den Steiß beschränkte Rosafärbung.
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Verbreitung und Lebensraum
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Christine Pühringer" 
+                              alt="Autor: Christine Pühringer" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Der Buntspecht kommt in Europa sowie in Nord- und Ostasien vor. An das europäische Areal anschließend gibt es auch Vorkommen in Nordwest-Afrika (Atlas-Länder) und in Südwest-Asien (Anatolien, Kaukasus-Länder, Nord-Iran). In Mitteleuropa ist er Standvogel, im Norden gelegentlich auch Strichvogel. <br><br>Der Buntspecht ist die am wenigsten spezialisierte heimische Spechtart und kommst deshalb von allen Arten auch am häufigsten vor: Sowohl in Laub- als auch in Nadelwäldern, aber auch in Parks und in der Kulturlandschaft, sofern dort Alleen, Windschutzstreifen oder kleine Baumgruppen vorhanden sind, ist er zu sehen und zu hören. Er gehört auch zu jenen Vögeln, die in den Grünbereichen der Städte zu finden sind. Eichenmischwälder mit viel Alt- und Totholz sind für ihn optimale Lebensräume, während eintönige Fichtenmonokulturen oder reine Buchenwälder nur geringe Spechtvorkommen aufweisen. Buntspechte sind Standvögel und bleiben im Winter in ihrem Lebensraum.<br></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">&nbsp;
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Stefanie Ebnicher" 
+                              alt="Autor: Stefanie Ebnicher" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Nordhalbkugel, ferner Afrika (wenige Stellen) , Neuguinea, Australien
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Lebensweise
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Christine Pühringer" 
+                              alt="Autor: Christine Pühringer" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Ernährung: Der Buntspecht ernährt sich während der überwiegenden Zeit des Jahres vor allem von Insekten und ihren Larven, die er mit kräftigen Schnabelhieben unter der Borke hervorholt. Während der Winterzeit, in der Insekten knapp sind, stellt er seine Ernährung um und frisst Nüsse, Beeren und Samen von Nadelbäumen. Viele der fettreichen Samen müssen erst geknackt werden: Während Rabenvögel, wie etwa der Eichelhäher, sie mit dem Fuß festhalten, klemmt der Buntspecht Nüsse oder Kiefernzapfen in Baumspalten ein. Um die Samen aus den Zapfen zu lösen, hackt er oft in einen Ast ein Loch und klemmt die Zapfen darin ein. Diese sogenannten "Spechtschmieden", nutzt der Buntspecht auch, um hartschalige Käfer zu knacken.<br>Buntspechte treten manchmal auch als Nesträuber auf; dabei öffnen sie gelegentlich Nistkästen, und fressen Eier und Jungvögel.<br><br>Lautäußerung: Um an seine Nahrung zu gelangen, die sich oft unter der Baumrinde befindet, klopft sich der Buntspecht durch die Rinde.<br>Dem Anlocken der Weibchen in der Balzzeit und der Revierabgrenzung dient dagegen das "Trommeln", eine sehr schnelle, bis 2 Sekunden dauernde Folge von 10-15 Schnabelschlägen. Die Männchen beginnen mit dem Trommeln bereits am Ende des Winters, sobald die von ihnen gezimmerte Höhle bezugsfertig ist. Sie nutzen dabei alle verfügbaren Resonanzkörper, hohle Baumstämme oder tote Äste und lassen ihre Wirbel aber auch an Regenrinnen oder hohlen Fassaden erklingen. Auch die Weibchen "trommeln" und machen dadurch die Männchen auf sich aufmerksam.<br>Eine weitere Lautäußerung ist ein kurzes hartes "kick" oder "kix". Die ganzjährig territorialen Vögel lassen dieses bis zu 120 Mal in der Minute erschallen, um ihr Territorium gegenüber anderen Tieren abzugrenzen.<br><br>Fortpflanzung: Der Buntspecht ist wie alle Spechte ein Höhlenbrüter. Die Bruthöhlen zimmert er selbst und bevorzugt dazu weiche Holzarten und morsche alte Bäume. Er legt 4 bis 7 weiße Eier, die etwa 11-13 Tage lang bebrütet werden. Die Jungvögel werden etwa 3 bis 4 Wochen lang gefüttert, bis sie ausfliegen. In der zweiten Hälfte der Fütterungsphase sind Nester wegen des ununterbrochenen lauten Gezeters der Jungvögel leicht zu entdecken.<br></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Gefährdung und Schutz
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Christine Pühringer" 
+                              alt="Autor: Christine Pühringer" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Der Buntspecht ist unser häufigster Specht und gilt in Österreich als nicht gefährdet. In den Städten ist er in letzter Zeit sogar häufiger anzutreffen.<br>Durch die Erhaltung von alten Bäumen und stehendem Totholz kann man zu seinem Schutz in Gärten und Parks beitragen.
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">&nbsp;
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Klaus Michalek" 
+                              alt="Autor: Klaus Michalek" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Gefährdung: <br>Verlust der für Bruthöhlen geeigneten Altersstufen der Bäume durch zu frühe Umtriebszeiten. Generelle Empfindlichkeit gegenüber waldwirtschaftlichen Maßnahmen.<br><br>Schutzmaßnahmen: <br>Schutzmaßnahmen in Anbetracht überwiegend positiver Entwicklung, vor allem aufgrund hoher, langfristig gesicherter Bestände, nicht erforderlich. Erhalt von Spechtbäumen und naturnahe Waldbewirtschaftung mit Belassen hohen Alt- und Totholzanteils begünstigen den Buntspecht und helfen damit den von den Bruthöhlen dieser Art abhängigen, z.T. bedrohten Vogelarten.
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Wissenswertes und Hinweise
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Gernot Neuwirth" 
+                              alt="Autor: Gernot Neuwirth" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Obwohl der Buntspecht für den Bau seiner Baumhöhlen mehrere Wochen benötigt, zimmert er immer gleich mehrere Unterkünfte in das weiche Holz kranker und morscher Bäume. Brut- und Schlafhöhle werden von Männchen und Weibchen dann gemeinsam ausgewählt.<br>Die restlichen Baumhöhlen stehen anderen Waldbewohnern zur Verfügung: Damit baut der fleißige Specht auch Wohnräume für Fledermäuse, Hummeln oder Siebenschläfer!
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Literaturhinweise
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Magdalena Meikl" 
+                              alt="Autor: Magdalena Meikl" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p>Bauer, H.-G., E. Bezzel & W. Fiedler (2005): Kompendium der Vögel Mitteleuropas - Alles
+                              über Biologie, Gefährdung und Schutz. Aula Verlag Wiebelsheim. 2. Auflage. 3 Bände.<br><br>Bibby, C. J., N. D. Burgess & D. A. Hill (1995): Methoden der
+                              Feldornithologie - Bestandserfassung in der Praxis. Herausgegeben von Dr. Eckhard Jedicke. Neumann Verlag Radebeul.<br><br>Cord Riechelmann: Wilde Tiere in der Großstadt. Nicolaische Verlagsbuchhandlung Berlin, 2004<br><br>Dvorak, M., A. Ranner & H.-M. Berg (19): Atlas der Brutvögel Österreichs. Umweltbundesamt Wien.<br><br>Glutz von Blotzheim, U.N. & K.M. Bauer u.a. (Hrsg.) (1994): Handbuch
+                              der Vögel Mitteleuropas. Band 9. Wiesbaden (Aula).<br><br>Südbeck, P., H. Andretzke, S. Fischer, K. Gedeon, T., Schikore, K. Schröder & Ch. Sudfeldt (Hrsg.) (2005): Methodenstandards zur Erfassung der Brutvögel Deutschlands im Auftrag der Länderarbeitsgemeinschaft der Vogelschutzwarten und des Dachverbandes Deutscher Avifaunisten e. V. (DDA) mit Unterstützung des Deutschen Rates für Vogelschutz e. V. und des Bundesamtes für Naturschutz. 
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#999386">
+                     <tr>
+                        <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td>
+                           <p class="InfoboxTitle">Infos in Wikipedia
+                           </p>
+                        </td>
+                        <td align="right">
+                           <p class="Note"><img src="platform/common/images/icons/head.gif" width="14" height="14" 
+                              title="Autor: Stefanie Ebnicher" 
+                              alt="Autor: Stefanie Ebnicher" /></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                     <tr>
+                        <td>
+                           <p><a href="http://de.wikipedia.org/wiki/Buntspecht" target="_blank">Mehr </a></p>
+                        </td>
+                     </tr>
+                  </table>
+                  <!-- End_content -->
+               </div>
+            </div>
+            <!-- End_main --><!-- End_teaser -->
+            <div id="teaser"
+               class="threeCol">
+               <!-- BEGIN panel/panel.teaser -->
+               <div>
+                  <div class="teaserHead">
+                     <p class="StructureHint">Zu dieser Art</p>
+                  </div>
+                  <div
+                     style="background-color: #F6F7E7">
+                     <p class="InfoboxTitle"></p>
+                     <p class="InfoboxTitle">Trivial names</p>
+                     <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                        <tr>
+                           <td valign="top"><img src="platform/common/images/flags/24.12/deu.gif" 
+                              alt="deu" 
+                              width="24" height="12" border="0" align="middle" /></td>
+                           <td valign="top" width="100%">
+                              <p class="Taxname">Buntspecht
+                              </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td valign="top"><img src="platform/common/images/flags/24.12/fra.gif" 
+                              alt="fra" 
+                              width="24" height="12" border="0" align="middle" /></td>
+                           <td valign="top" width="100%">
+                              <p class="Taxname">Pic &eacute;peiche
+                              </p>
+                           </td>
+                        </tr>
+                     </table>
+                     <p>&nbsp;</p>
+                     <table width="100%" border="0" cellpadding="0" cellspacing="0" background="platform/common/images/layoutelements/seperator.infoboxes.gif">
+                        <tr>
+                           <td><img src="platform/common/images/layoutelements/onepixel.gif" width="1" height="1"></td>
+                        </tr>
+                     </table>
+                     <!-- BEGIN panel/panel.teaser -->
+                     <div>
+                        <div class="teaserHead">
+                           <p class="StructureHint">Wie melden ?</p>
+                        </div>
+                        <div
+                           style="background-color: #F6F7E7">
+                           <p class="InfoboxTitle"></p>
+                           <p class="InfoboxTitle">In Österreich komplett meldbare Gruppen
+                           </p>
+                           <p class="teaser">Folgende Tiergruppen sind für Österreich bisher komplett im System hinterlegt und über den Menüpunkt "Im Fokus" erreichbar:
+                           </p>
+                           <p class="teaser">Vögel, Tagfalter, Amphibien, Hummeln
+                           </p>
+                           <p class="teaser">Über Partnerprojekte bei science4you:
+                           </p>
+                           <p class="teaser">Tag- und Nachtfalter, Kleinschmetterlinge. Komplette Europaliste über www.falterfunde.de
+                           </p>
+                           <p class="teaser">Libellen: Komplette Europaliste über www.libellenfunde.de
+                           </p>
+                        </div>
+                     </div>
+                     <!-- END panel/panel.teaser -->
+                  </div>
+               </div>
+               <!-- END panel/panel.teaser -->
+            </div>
+            <!-- End_teaser -->
+         </div>
+         <!-- End_pagebase --><!-- Begin_footer -->
+         <div id="footer" class="threeCol">
+            <p align="center"><a href="#top" target="_self"><img
+               src="platform/common/images/navigation/channelfooter.top.gif"
+               alt="Nach oben" width="20" height="9" border="0"></a></p>
+            <p class="ChannelFooter"><a href="platform/mo/nabeat/cmstext.do?pp=imprint&colclass=threeCol" target="_top">Impressum</a>&nbsp;|&nbsp;
+               <a href="platform/mo/nabeat/cmstext.do?pp=disclaimer" target="_self">Haftungsausschluss</a>&nbsp;|&nbsp;
+               <a href="platform/mo/nabeat/cmstext.do?pp=privacy" target="_self">Datenschutz</a>&nbsp;|&nbsp;Newsletter
+            </p>
+            <div id="logoFooter">
+               <img src="platform/mo/nabeat/common/images/logo_oenb_2013_195x113.jpg" width="150" height="85"
+                  alt="Naturschutzbund Österreich" title="Naturschutzbund Österreich" border="0">&nbsp;
+               <img src="platform/common/images/logo/s4you_160x49.jpg" 
+                  alt="science4you" title="science4you" border="0">
+               <p>naturbeobachtung.at ist ein Kooperationsprojekt von <a href="http://www.naturschutzbund.at">|&nbsp;<b>naturschutzbund</b>&nbsp;|</a>&nbsp;und <a href="www.science4you.org">science4you</a></p>
+            </div>
+            <p onclick="showElements('admin')">&nbsp;&nbsp;.&nbsp;&nbsp;</p>
+            <!-- Admin-Area -->
+            <div id="admin">
+               <p id="sid"></p>
+               <button onclick="myFunction()">Get SID</button><script>function myFunction() {
+                  document.getElementById("sid").innerHTML =
+                  "SID: " + globSid;
+                  }
+               </script>
+            </div>
+         </div>
+         <!-- End_footer -->
+      </div>
+      <!-- End_wrapper -->
+   </body>
+</html>

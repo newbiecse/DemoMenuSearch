@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+/* Browserstylesheets nivellieren, einheitliche Voraussetzungen schaffen */
+html,body,div,p,h1,h2,h3,h4,h5,h6,form,ul,ol,li,dl,dt,dd {
+	margin: 0;
+	padding: 0;
+}
+
+/* Hack für alle ausser IE<7 */
+body > #left {
+ position:fixed;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+	font-size: 1em;
+}
+
+html {
+/*	font-size: 80%; */
+}
+
+/* kein Rahmen für verlinkte Bilder */
+img {
+	border: none;
+}
+
+html,body {
+	background-color: #fff;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body {
+	width:100%;
+	padding-right:16px;
+}
+
+/* allgemeines */
+a {
+	text-decoration: none;
+}
+
+a:hover,a:focus,a:active {
+	text-decoration: underline;
+}
+
+#wrapper {
+   top:0px;
+   left:0px;
+	}
+	
+/* ########################## HEADER ################################### */
+#heading {
+	position: relative;
+	height: 130px;
+	/*border: 3px solid red;*/
+	margin-top: 0;
+}
+
+
+/* ################### Hauptnavigation ######################### */
+#navBar {
+	float: left;
+	width: 100%;
+	position: relative;
+	margin-top: 0.5em;
+}
+
+#navBar li {
+	float: left;
+	list-style: none;
+}
+
+#navBar a {
+	display: block;
+	padding: 0.2em 1em;
+	border-right: 2px solid #fff;
+}
+
+/* Zweite Ebene */
+#navBar li.active ul a {
+	background-color: #fff;
+	color: #333;
+	border-color: #000;
+}
+
+#navBar ul li.active a {
+	text-decoration: underline;
+}
+
+#navBar li ul {
+	position: absolute;
+	bottom: -2em;
+	left: 0;
+}
+
+/* ###################### pagebase +######################## */
+#pagebase {
+	clear: both;
+	min-height: 30em;
+}
+
+
+
+/* ########################### Pagecontrol ############################################### */
+#pagecontrol {
+		/* Sichtbarkeit in IE6 */
+	position: relative;
+	display: inline;
+}
+
+/* #################### Spalten #################### */
+#pageAction {float: left;}
+
+#pagecontrol, #content, #teaser, #banner {float: left;}
+
+
+/* ################ TeaserBlock ########################### */
+
+.Teaser span.StructureHint {
+	display: block; 
+	position: relative; top: -1.2em;
+	color: #666;
+	font-weight: bold; 
+	font-size: 0.9em;
+	}
+
+.Teaser h2 {font-size: 1.1em; color: #903; font-weight: bold;}
+
+
+/* ###################### Widgets ################################### */
+
+/* Bildleiste mit Unterschrift */
+.images {width: 100%; float: left; margin-bottom: 1em;}
+.images li {float: left; list-style: none; width: 180px; text-align: center; background-color: #ddd;
+margin-right: 3px; min-height: 270px;}
+.frame {height: 180px; background-color: #eee; line-height: 180px; margin-bottom: 10px; }
+.frame img {vertical-align: middle;}
+.images .imageTitle {display: block; text-align: left; padding-left: 4px; margin: 5px 0;}
+
+
+
+
+/* ######################### Footer ################################## */
+
+#footer {text-align: center; padding-top: 2em; clear: both;}
+#footer a {color: #555;}
+
+/* ######################### Footer ################################## */
+
+#admin {display: none;}
+

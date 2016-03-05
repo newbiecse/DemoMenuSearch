@@ -1,0 +1,1498 @@
+/*********************************
+NABEAT
+
+neu definierte Farben
+
+grün:   #99CC00
+orange: #FF6600
+braun:  #996633
+
+**********************************/
+
+@charset "UTF-8";
+
+/* -----------------------------------------------------------------------------------------------
+Pathway
+----------------------------------------------------------------------------------------------- */
+
+a.Pathway {
+    /*color : #96294A;*/
+	color : #FF6600;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : normal;
+	text-decoration : none
+}
+
+
+.Pathway {
+    color : #FF6600;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : normal;
+	text-decoration : none
+}
+
+a.PathwayCurrent {
+    color : #FF6600;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 10pt;
+	font-weight : bold;
+	text-decoration : none
+}
+
+.PathwayInfo {
+    color : #FF6600;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : normal;
+	text-decoration : none
+}
+
+/* -----------------------------------------------------------------------------------------------
+Links (wird benutzt)
+----------------------------------------------------------------------------------------------- */
+
+a {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	text-decoration : none;
+	color: #996633;
+}
+
+a:hover {
+	text-decoration : underline;
+	background-color:#f9f9f9;
+}
+
+a.Abstract {
+	color : #FF6600;
+	font-size : 9pt;
+}
+
+/* -----------------------------------------------------------------------------------------------
+SpeciesSheet
+----------------------------------------------------------------------------------------------- */
+
+.SpeciesTitle {
+	color : #000000;
+	font-size : 13px;
+	font-weight: bold;
+	line-height: 14px;
+	margin: 6pt 1pt 1pt 3pt;
+}
+
+.SpeciesText {
+	color : #000000;
+	font-size : 11px;
+	line-height: 14px;
+}
+
+.SpeciesLiterature {
+	color : #000000;
+	font-size : 11px;
+	line-height: 14px;
+	margin: 0pt 0pt 3pt 0pt;
+}
+
+.SpeciesLiteratureAuthor {
+	color : #000000;
+	font-size : 11px;
+	line-height: 14px;
+	font-variant: small-caps;
+}
+
+/* ------------------------------------------------------------------------------------------------
+Tables Background
+----------------------------------------------------------------------------------------------- */
+
+table.PageActions {
+	background-color : #e2e2e2;
+	}
+	
+td.PageHeading {
+	/*background-color : #F3AD00;*/
+	background-color : #FFFFFF;
+	}
+	
+td.HeadingNavigation {
+	background-color : #e2e2e2;
+	}
+	
+td.HeadingContent {
+	background-color : #e2e2e2;
+}
+
+td.register {
+	background-color : #eeeeee;
+	font-size:11pt;
+}
+
+table.Sidebox {
+	background-color : #eeeeee;
+	}
+	
+td.SideboxBorder {
+	background-color : #CCCCCC;
+}
+
+td.WorkspaceInfobox {
+	background-color : #F3F3EB;
+}
+
+tr.WorkspaceInfobox {
+	background-color : #F3F3EB;
+}
+td.TableList {
+	background-color : #F3F3EB;
+}
+
+tr.TableList {
+	background-color : #F3F3EB;
+}
+
+/* ------------------------------------------------------------------------------------------------
+Navigation Areas
+----------------------------------------------------------------------------------------------- */
+
+	
+/* Level 2 navigation links */
+a.NavigationLevel2 {
+	/*color : #000033;*/
+	/*color : #660000; (rot standard)*/
+	/*color : #333333; (rot standard)*/
+	color : #333333;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : normal;
+	text-decoration : none;
+}
+
+a.NavigationLevel2Selected {
+	color : #009900;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+p.NavigationLevel2 {
+	margin: 0pt 4pt 0pt 4pt;
+}
+
+td.NavigationLevel2 {
+	background-color : #FFFFFF;
+}
+
+/* PageControl navigation links */
+a.NavigationTree {
+/*     color : #990000; dunkelrot */
+    color : #000099;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : normal;
+	text-decoration : none;
+}
+
+.NavigationTreeSelected {
+    color : #009900;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+p.NavigationTree {
+	margin: 2pt 1pt;
+}
+
+td.NavigationTree {
+	background-color : #FFFFCC;
+}
+
+/* Level 3+ navigation links */
+a.NavigationLevel3, a.NavigationLevel4 {
+  color : #555555;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : normal;
+}
+
+a.NavigationLevel3Selected, a.NavigationLevel4Selected {
+  color : #555555;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight : bold;
+}
+
+p.NavigationLevel3 {
+	margin: 0pt 0pt 0pt 0pt;
+}
+
+p.NavigationLevel4 {
+	margin: 0pt 0pt 0pt 0pt;
+}
+
+
+td.WorkspaceInfobox {
+	background-color : #F3F3EB;
+}
+
+tr.WorkspaceInfobox {
+	background-color : #F3F3EB;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Infoboxes
+----------------------------------------------------------------------------------------------- */
+
+p.InfoboxTitle {
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 7pt 3pt 8pt 3pt;
+}
+
+a.InfoboxTitle {
+	color: #009900;
+	font-weight: bold;
+}
+
+.InfoboxTitle {
+	/*color: #990000; (dunkelrot)*/
+	/*color: #990033; (dunkelrot desaturiert)*/
+	color: #59a727;
+	font-weight: bold;
+}
+
+p.InfoboxTitleVar1 {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #5A7C14;
+  margin: 6px 4px 6px 2px;
+}
+
+/* ------------------------------------------------------------------------------------------------
+Forms
+----------------------------------------------------------------------------------------------- */
+p.Form {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-size: 8pt;
+  font-weight: normal;
+  margin: 0pt 0pt 0pt 0pt;
+}
+
+input.PlainFormField {
+  border: 1px solid #666666;
+  background-color: #FFFFFF;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+}
+
+input.PlainButton {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  background-color: #307CD1;
+  font-size: 8pt;
+  color: #FFFFFF;
+  border: 1px #000000;
+  width: 90px;
+}
+
+textarea.editarea {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+  width: 570px;
+  height: 460px;
+  border: 1px solid #666666;
+}
+
+textarea.newscontent {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+  width: 500px;
+  height: 100px;
+  border: 1px solid #666666;
+}
+
+input.form30 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+  width: 30px;
+  height: 20px;
+  border: 1px solid #666666;
+}
+
+input.form100 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+  width: 100px;
+  height: 20px;
+  border: 1px solid #666666;
+}
+
+input.form350 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+  width: 350px;
+  height: 20px;
+  border: 1px solid #666666;
+}
+
+input.form500 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 17px;
+  width: 500px;
+  height: 20px;
+  border: 1px solid #666666;
+}
+
+/* -----------------------------------------------------------------------------------------------
+ContentArea
+----------------------------------------------------------------------------------------------- */
+.Abstract {
+  color: #000000;
+  font-size: 11px;;
+}
+
+p.Abstract {
+  margin: 2px 3px 6px 2px;
+  line-height: 15px;
+}
+
+.Note {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: gray;
+  margin: 0pt 0pt 0pt 0pt
+}
+
+.Minifont {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  color: #666666;
+  margin: 0pt 0pt 0pt 0pt;
+  text-align: center;
+  vertical-align: top
+}
+
+a.Note {
+  color: #307CD1;
+  font-weight: normal;
+}
+
+p.CategoryHeading {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #009900;
+  font-size: 13pt;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 3pt 3pt 14pt 2pt;
+}
+
+.Table {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  margin: 0pt 2pt 0pt 2pt
+}
+
+td.register {
+  background-color: #ffffff;
+}
+
+tr.TableRow {
+  background-color: #307CD1
+}
+
+p.Table {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-weight: normal;
+  font-size: 8pt;
+}
+
+/* ----- Monitoring Findings List ------ */
+.Discarded {
+  color: #999999;
+}
+
+/* -----------------------------------------------------------------------------------------------
+ContentArea Heading
+----------------------------------------------------------------------------------------------- */
+.Abstract,.AbstractH1,.AbstractH2 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.AbstractH1 {
+  color: #000066;
+  font-size: 11pt;
+  font-weight: bold;
+  margin: 1pt;
+}
+
+.AbstractH2 {
+  color: #000000;
+  font-size: 11pt;
+  font-weight: bold;
+  margin: 6pt 0pt 4pt 0pt;
+}
+
+
+/* -----------------------------------------------------------------------------------------------
+Actions
+----------------------------------------------------------------------------------------------- */
+a.PageActions {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #FF6600;
+  font-weight: normal;
+  font-size: 8pt;
+}
+
+p.PageActions {
+  margin: 2pt 0pt;
+}
+
+.Actions {
+  color: Gray;
+  font-weight: normal;
+  font-size: 8pt;
+}
+
+p.Actions {
+  margin: 2pt 0pt;
+}
+
+/* -----------------------------------------------------------------------------------------------
+HTML Headings
+----------------------------------------------------------------------------------------------- */
+H1,H2,H3,li,p {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+H1 {
+  color: #996633;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+H2 {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+H3 {
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Heading
+----------------------------------------------------------------------------------------------- */
+p.HeadingCategory {
+  color: Black;
+  font-size: 12pt;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a.HeadingCategory {
+  color: Black;
+  font-size: 12pt;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p.SideboxTitle {
+  color: #000033;
+  font-size: 10pt;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Teaser
+----------------------------------------------------------------------------------------------- */
+.Teaser {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  margin: 2px 2px 2px 2px;
+}
+
+p.Teaser {
+  margin: 3pt 2pt 2pt 2pt;
+  line-height: 13px;
+  color: #000000;
+}
+
+p.TeaserHell {
+  margin: 3pt 2pt 2pt 2pt;
+  line-height: 13px;
+  color: #FFFFFF;
+}
+
+
+/* -----------------------------------------------------------------------------------------------
+taxname
+----------------------------------------------------------------------------------------------- */
+.Taxname {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-size: 11px;
+}
+
+p.Taxname {
+  margin: 2pt 1pt 1pt 1pt;
+  line-height: 12px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Structure (wird verwendet NH 18.3.11)
+----------------------------------------------------------------------------------------------- */
+p.StructureHint {
+  color: #996633;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 14px;
+  padding: 1pt 1pt 1pt 1pt;
+  border-bottom-color: #FF6600;
+  border-bottom-style: dotted;
+  border-bottom-width: 2px;  
+}
+
+div.StructureHint {
+  border-bottom-color: #FF6600
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+	}
+	
+td.StructureHint { /*background-color : #B6BAAC;*/
+  background-color: #FFFFFF;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Other HTML Tags
+----------------------------------------------------------------------------------------------- */
+ul {
+  margin-top: 2px;
+}
+
+ol,li {
+  font-size: 11px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 15px;
+  margin: 0px 0px 0px 2px;
+}
+
+p.classify {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 3px 0px 2px 4px;
+}
+
+.classify {
+  color: #990033;
+  font-weight: bold;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Images
+----------------------------------------------------------------------------------------------- */
+.ImageTitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-size: 9px;
+}
+
+p.ImageTitle {
+  margin: 3pt 2pt 2pt 2pt;
+  line-height: 11px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Plates
+----------------------------------------------------------------------------------------------- */
+.plate-image-box {
+    width: 174px;
+    height: 246px;
+    padding: 2px;
+    background-color: rgb(34, 34, 34);
+    margin: 0px;
+    border: 1px solid rgb(6, 6, 6);
+    float:left;
+}
+
+.PlateTitle {
+  color: #000000;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 14px;
+  margin: 6pt 1pt 1pt 3pt;
+}
+
+table.image_left {
+  margin: 0pt 10pt 10pt 0pt;
+}
+
+table.image_right {
+  margin: 0pt 0pt 10pt 10pt;
+}
+
+#imagePlate {
+   padding:2px;
+   margin:0px;
+   width:100%;
+}
+
+.imageBox {
+   float:left;
+   padding:2px;
+   margin:2px;
+   border:1px solid grey;
+   background-color: grey;
+}
+
+/* -----------------------------------------------------------------------------------------------
+DataPaging  12.2.14 für dp3
+----------------------------------------------------------------------------------------------- */
+div.dpArea {
+	background-color:#E1F5A9;
+	height:24px;
+	border:0;
+	color:black;
+}
+
+div.dpLink {
+	border-left:1px solid white;
+	border-right:1px solid white;
+	margin:0;
+	height:14px;
+	padding:2px 2px 2px 2px;
+	float:left;
+}
+
+div.dpFirst {
+	border:1px solid white;
+	margin:0;
+	height:14px;
+        width:10px;
+	padding:2px 2px 2px 2px;
+	float:left;
+}
+
+div.dpNext {
+	border:1px solid white;
+	margin:0;
+	height:14px;
+	padding:2px 2px 2px 2px;
+	float:left;
+}
+div.dpLast {
+	border:1px solid white;
+	margin:0;
+	height:14px;
+        width:10px;  
+	padding:2px 2px 2px 2px;
+	float:left;
+}
+
+div.dpTitle {
+	float:left;
+}
+div.dpClear {
+	clear:both;
+}
+
+p.dpTitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: bold;
+}
+
+p.dpLinkSelected {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding: 2px;
+  color: #999999;
+  line-height: 14px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a.dpLink {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #990033;
+  padding: 2px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a.dpLink p {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #990033;
+  padding: 2px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a.dpLink:hover {
+  text-decoration: underline;
+}
+
+
+.forumNote {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  color: black;
+  margin: 0px 0px 0px 0px
+}
+
+
+/* -----------------------------------------------------------------------------------------------
+Forum
+----------------------------------------------------------------------------------------------- */
+
+
+div.forum {
+	position:0;
+	clear:both;
+}
+
+.forum table {
+	position:absolut;
+	margin-left:0;
+}
+
+div.forumteaser {
+padding: 2px 2px 2px 2px;
+background-color:#E1F5A9;
+}
+
+ul.forum {
+	list-style-type: none; 
+	padding-left: 0; 
+	margin-left: 0;
+	margin-bottom:5px; 
+
+}
+
+
+/* -----------------------------------------------------------------------------------------------
+Displaytag
+----------------------------------------------------------------------------------------------- */
+
+.displaytag {
+	margin-top:5px;
+  color: black;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+}
+
+table.displaytag {
+  margin: 20px 0 20px 0;
+  border: 1px solid #aaaaaa;
+  border-collapse: collapse;
+}
+
+table.displaytag thead tr th {
+  background-color: #eeeeee;
+  padding: 2px 4px 2px 4px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+table.displaytag tr.even td {
+  background-color: #f6f7e7;
+  color:blue;
+}
+table.displaytag tr.odd td {
+  background-color: #fefefe;
+  color:black;
+}
+
+table.displaytag td, table.displaytag th {
+  border: 1px solid #888888;
+  font-size: 10px;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+span.export.displaytag {
+  padding: 0 4px 1px 20px;
+  display: inline;
+  cursor: pointer;
+  margin-top:5px;
+}
+
+span.pagebanner.displaytag {
+  background-color: #eee;
+  border: 1px dotted #999;
+  padding: 2px 4px 2px 4px;
+  width: 79%;
+  margin-top: 5px;
+  margin-bottom:5px;
+  display:block;
+  border-bottom: none;
+}
+
+span.pagelinks.displaytag {
+  margin-top:10px;
+  background-color: #eee;
+  border: 1px dotted #999;
+  padding: 2px 4px 2px 4px;
+  width: 79%;
+  display:block;
+  border-top: none;
+  margin-bottom: -5px;
+}
+
+
+/* Test: anderer Style */
+
+.tmd {
+  color: black;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+}
+
+table.tmd {
+  margin: 20px 0 20px 0;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+table.tmd thead tr th {
+  color: black;
+  background-color: #db8;
+  padding: 2px 4px 2px 4px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+table.tmd tr.even {
+  background-color: #fff;
+}
+table.tmd tr.odd {
+  background-color: #cfc;
+}
+
+table.tmd td, table.tmd th {
+  border: 1px solid #ccc;
+  font-size: 10px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+
+
+.its {
+  color: blue;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+table.its {
+  margin: 20px 0 20px 0;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+table.its thead tr {
+  background-color: #69c;
+}
+
+table.its tr.even {
+  background-color: #def;
+}
+
+table.its tr.odd {
+  background-color: #aff;
+}
+
+
+
+table.mars thead tr {
+  background-color: #9c9;
+}
+
+table.mars tr.even {
+  background-color: #ccb;
+}
+
+table.mars tr.odd {
+  background-color: #eec;
+}
+
+/** ----------------------- **/
+
+
+
+
+/* -----------------------------------------------------------------------------------------------
+Sound
+----------------------------------------------------------------------------------------------- */
+
+#sound {
+	width: 320px;
+	margin: 5px 5ox 5px 5px;
+	padding: 5px 5ox 5px 5px;
+	background-color: #eee;
+}
+#sound p {
+	font-size: 0.9em;
+	margin-top: 5 px;
+	margin-bottom: 5 px;
+	line-height: 120%;
+	padding: 5px 0px 5px 0px;
+}
+#sound a {
+	font-size: 1.0em;
+	padding: 5px 0px 5px 0px;
+}
+#sound h2 {
+	color: blue;
+}	
+	
+
+	
+/* -----------------------------------------------------------------------------------------------
+Taxaliste Pagecontrol 22.3.2010
+----------------------------------------------------------------------------------------------- */
+ul.taxalist {
+	list-style-type: none; 
+	padding-left: 0; 
+	margin-left: 0; 
+	border-bottom: 1px solid #555;
+	}
+	
+li.taxalist {
+	border-bottom: 1px dotted #555;
+	}	
+li.dispgroup {
+	font-weight: bold;
+	font-size: 11pt;
+	padding-top: 2pt;
+	padding-bottom: 2pt;
+	margin-bottom: 3pt;
+	margin-top: 5pt;
+	}	
+p.sciencename {
+	font-style: italic;
+	font-size: 8pt;
+	color: black;
+	}	
+
+
+
+/* ################# neu 10.1.2011 ##################### */
+
+html {background-color:#ffffff;}
+body {
+	top:0xp;
+	left:0px;
+	padding-right:0px;
+	margin-top:0px;
+}
+
+#wrapper {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   margin-left:10px;
+   margin-top:10px;
+   margin-right:10px;
+   background-color:#ffffff;
+}
+
+#pagecontrol {width: 220px; padding: 0 10px; min-height: 20em;}
+
+.oneCol #main {padding: 0 0.5em;}
+.oneCol #content {width: 100%; padding: 0 2px;}
+.oneCol #wrapper {width: 100%; }
+
+.twoCol #content {width: 100%; padding: 0 2px;}
+.twoCol #main {padding-left: 240px; margin-right:20px;}
+.twoCol #wrapper {width: 100%; }
+
+.threeCol #wrapper {width: 60em; }
+.threeCol #content {width: 33em; padding: 0 2px;}
+.threeCol #teaser {width: 14em; padding: 0 2px;}
+.threeCol #main {padding-left: 240px;}
+
+.fourCol #wrapper {width: 76em; }
+.fourCol #content {width: 33em; padding: 0 2px;}
+.fourCol #teaser {width: 15em; padding: 0 2px; }
+.fourCol #pageAction {width: 48em;} /* #content + #teaserBlock */
+.fourCol #main {padding-left: 240px;}
+
+#banner {width: 11em;}
+
+#teaserBlock {width: 27%; padding-top: 2em;}
+
+/* ######################### Teaser ################################## */
+
+
+.beige {background-color: #f6f7e7; color: #000;}
+
+.SpeciesName li {list-style: none; margin: 0.8em 0; }
+
+.SpeciesName img {padding-right: 0.5em;}
+
+.googleForm {margin: 1em 0;}
+
+/* Editorials */
+
+.edtExpandLink {text-align: right; font-size: 0.8em; color: #FF6600;}
+
+/* ########### Kopfbereich ################### */
+
+#heading {
+	position: relative;
+	height: 100px;
+	/*border: 3px solid red;*/
+	margin-top: 0;
+	background-color:#ffffff;
+}
+
+#pageheader {
+   position:absolute;
+   top:0px;
+   left:0px;
+   height:90px;
+   font-size: 10px;
+   line-height: 13px;
+   width:100%;
+}
+
+#logo {
+   top:0px;
+   left:5px;
+   padding:5px;
+   width:180px;
+   float: left;
+   position: relative;
+}
+
+
+#logo img {
+	background-color: #ffffff;
+}
+
+#nonlogo {
+margin-right:20px;
+   top:0px;
+   left:0px;
+   padding-left:230px;
+   padding-right:0;
+   padding-top:0;
+   padding-bottom:0;
+}
+
+#pathway {
+   top:5px;	
+   left:0px;
+   padding:3px;
+   margin:0px;
+} 
+
+#sitemap {
+   left:0px;
+   padding:0px;
+   margin:0px;
+}
+
+#loggedinfo {
+   padding:2px;
+   margin:0;
+   padding:0;
+   color: #99cc00;
+   text-align:right;
+}
+
+#loggedinfo p {
+   right:0px;
+}
+
+
+
+#menuarea {
+   padding:3px;
+   margin-left:0px;
+   margin-right:5px;
+   width:100%;
+}
+
+#mainmenu {
+   top:0px;
+   right:0px;
+   padding:3px;
+   margin:0px;
+   width:100%;
+}
+
+#submenu {
+   top:0px;
+   right:0px;
+   padding:3px;
+   margin:0px;
+   color: #FF6600;
+   background-color: #FFFFFF;
+}
+
+#version {
+   top:0px;
+   right:10px;
+   padding:2px;
+   margin:0px;
+   color: #99CC00;	
+   font-family : Verdana, Arial, Helvetica, sans-serif;
+   font-size : 7pt;
+   font-weight : normal;   
+   background-color: #FFFFFF;
+   text-align:right;
+   /*border-top: 1px solid #99cc00;  Ticket #439 */
+}
+
+/* -- 13.6.12 NH -- */
+
+#logoFooter {
+   padding:3px;
+   margin:3px;
+   color: #99cc00;
+   font-size: 12px;
+   background-color: #ffffff;
+   border-top: 1px solid #99cc00;
+   border-bottom: 1px dotted #99cc00;
+}
+
+#footer {
+	background-color:#ffffff;
+}
+
+/* -----------------------------------------------------------------------------------------------
+LoginPrompt (wird benutzt)
+----------------------------------------------------------------------------------------------- */
+
+p.LoginPrompt {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #99CC00;
+	margin: 0px 0px 0px 0px;
+	/*
+	background: #DDE3D4;
+	border: 1px solid #C0C4A6;
+	*/
+}
+
+a.LoginPrompt {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	color: #99cc00;
+	font-weight: normal;
+	text-align:right;
+}
+
+input.LoginButton {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  background-color: #FF6600;
+  font-size: 8pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px #000000;
+  width: 95px;
+  height: 24px;
+}
+
+
+/* -----------------------------------------------------------------------------------------------
+Channel-Footer
+----------------------------------------------------------------------------------------------- */
+.ChannelFooter {
+  color: #996633;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  font-weight: normal;
+}
+
+a.ChannelFooter {
+  text-decoration: none;
+}
+
+p.ChannelFooter {
+  margin: 1pt 1pt;
+  border-top: 1px solid FF6600;
+}
+
+a.Quicklink {
+  color: #999999;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+p.Quicklink {
+  color: #999999;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  font-weight: normal
+}
+
+.SiteInformation {
+  color: #990000;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+a.SiteInformation {
+  text-decoration: none;
+}
+
+p.SiteInformation {
+  margin: 2pt 1pt;
+}
+
+/* -------------- im Fokus -------- */
+
+#imFokus {
+	padding: 4px;
+	background-color: #ffffff;
+	width: 180 px;
+	margin-top:10px;
+}
+
+#imFokus tr {
+	margin: 5px;
+	border: 1px dotted red;
+	font-weight:bold;
+	background-color:#ffffff;
+}
+
+#imFokus td {
+	vertical-align: middle;
+	font-size:9pt;
+	padding-right:8px;
+	border-bottom:1px dotted grey;
+}
+
+#imFokus img {
+	margin-right:5px;
+	}
+
+/* ---------------- Textlogo ---------------*/
+
+#textlogo {
+	margin-left:0px;
+	margin-bottom:40px;
+	margin-top:10px;
+}
+
+#textlogo p {
+	font-style:italic;
+	font-weight:bold;
+	font-size:16pt;
+	line-height:20pt;
+}
+
+/* ---------------- Suche ---------------*/
+
+#generalsearch {
+	margin:15px 5px 15px 5px;
+	border:2px solid #ff6600;
+	vertical-align:middle;
+	font-size:9pt;
+	color:lightgrey;
+}
+
+#generalsearch img {
+	align:right;
+}
+
+#generalsearch table {
+	margin:0;
+	border:0;
+}
+
+#generalsearch input {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  border: 0;
+}
+
+
+
+
+/* -----------------------------------------------------------------------------------------------
+Bildtafeln allgemein
+----------------------------------------------------------------------------------------------- */
+
+table.Gallery2 {
+	background-color: #DDDDDD;
+}
+
+td.Gallery2 {
+ 	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	color : #99CC00;
+	font-weight: normal;
+	font-size : 9px;
+}
+
+/* ---------------- Artenliste Faltertage ---------------*/
+
+#taxlistlinks {
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom:2px dotted #ff6600;
+	font-size:9pt;
+	color:#99CC00;
+}
+
+
+#taxlistlinks a {
+	color:#FF6600;
+}
+#taxlistlinks a:hover {
+	font-weight: normal;
+	color:#FF6600;
+}
+
+#taxlistlinks tr {
+	border-bottom:1px dotted grey;
+}
+
+/* ----------- newest Gaterhing ------- */
+
+.newestGatheringPicture {
+	padding: 4px 4px 4px 4px;
+	background-color: #EDFBC4;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.ngPicture {
+	text-align:center;
+}
+.ngRecord {
+	margin-top:2px;
+}
+
+/* ---------------- neuestes Forumsbild ---------------*/
+
+.newestForumPicture {
+	padding: 4px 4px 4px 4px;
+	background-color: #F6F7E7;
+}
+
+.nfPicture {
+	text-align:center;
+}
+.nfRecord {
+	margin-top:8px;
+}
+
+/* ---------------- neuestes Forumsbild ---------------*/
+
+.emblem {
+	background-color: #eeeeee;
+}
+
+.observationLinks {
+	margin: 2px 2px 2px 2px;
+	border-top: 2px dotted #FF6600;
+	border-bottom: 2px dotted #FF6600;
+	padding: 2px 2px 2px 2px;
+}
+
+#recordlink {
+	margin: 2px 2px 2px 2px;
+	padding: 2px 2px 2px 2px;
+	background-color: #FFCC00;
+}
+
+/*---- Quiz -----*/
+#quizquest {
+	margin: 5px 5px 5px 5px;
+	font-size:12pt;
+}
+
+#quizquest .question {
+	margin-top:5px;
+	margin-bottom:10px;
+	font-size:13pt;
+	font-weight: bold;
+	line-height:16pt;
+	color:orange;
+}
+
+#quizanswers {
+	margin-top:5px;
+}
+
+#quizanswers ul {
+	list-style:none;
+	margin-bottom:10px;
+}
+
+#quizanswers li {
+	font-size:11pt;
+	line-height:14pt;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+
+.panelStatistics {
+	margin: 4px;
+	background-color:#F5F6CE;
+}
+
+#queryList ul {
+	list-style-type: none; 
+	padding-left: 2px; 
+	margin-left: 0; 
+	border-bottom: 1px solid #555;
+}
+
+#queryList li {
+	border-bottom: 1px dotted #555;
+}
+
+#queryList li:hover {
+	background-color:#F5F6CE;
+}
+
+#queryList a:hover {
+	background-color:#F5F6CE;
+}
+
+#queryList a:visited {
+	font-weight:bold;
+}
+
+
+#StatisticsCurrentPagecontrol {
+	margin-top: 20px;
+}
+
+#StatisticsCurrentPagecontrol ul li {
+	list-style-type: none; 
+	padding-left: 2px; 
+	margin-left: 2px; 
+}

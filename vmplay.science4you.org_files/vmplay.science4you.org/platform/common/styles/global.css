@@ -1,0 +1,1396 @@
+/*********************************
+company: s2you
+subject: s2you-portal
+document: global.css
+author: Plitek
+date: 18.12.2002
+
+GLOBAL
+**********************************/
+	/* -----------------------------------------------------------------------------------------------
+Body
+----------------------------------------------------------------------------------------------- */
+.BodyPageControl { /*background-color: #F6F7E7;
+	background-color: #E8E9E1; (dunkler)
+	background-color: #F4F5ED; (heller)
+	background-color: #F1F2EA; (noch heller)*/
+	background-color: #F1F2EA;
+}
+
+.BodyChannelStandard { /*background-color: #F3F4EF;*/
+	background-color: #FFFFFF;
+}
+
+.BodyChannelOverview {
+	background-color: #FFFFFF;
+}
+
+.BodyPageHeading { /*background-color: #F3AD00; (orange)*/
+	background-color: #FFFFFF;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Version
+----------------------------------------------------------------------------------------------- */
+.version {
+	color: #AAAAAA;
+	font-size: 11px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+ContentArea
+----------------------------------------------------------------------------------------------- */
+.Abstract {
+	color: #000000;
+	font-size: 11px;
+}
+
+p.Abstract {
+	margin: 2px 3px 6px 2px;
+	line-height: 15px;
+}
+
+.Note {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: gray;
+	margin: 0pt 0pt 0pt 0pt
+}
+
+a.Note {
+	color: #990000;
+	font-weight: normal;
+}
+
+p.CategoryHeading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #666666;
+	font-size: 12pt;
+	font-weight: bold;
+	line-height: 18px;
+	margin: 3pt 3pt 3pt 2pt;
+}
+
+.Table {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0pt 2pt 0pt 2pt
+}
+
+td.register {
+	background-color: #ffffff;
+}
+
+tr.TableRow {
+	background-color: #F3F3EB
+}
+
+p.Table {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+/* ----- Monitoring Findings List ------ */
+.Discarded {
+	color: #999999;
+}
+
+/* -----------------------------------------------------------------------------------------------
+ContentArea Heading
+----------------------------------------------------------------------------------------------- */
+.Abstract,.AbstractH1,.AbstractH2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.AbstractH1 {
+	color: #000066;
+	font-size: 11pt;
+	font-weight: bold;
+	margin: 1pt;
+}
+
+.AbstractH2 {
+	color: #000000;
+	font-size: 11pt;
+	font-weight: bold;
+	margin: 6pt 0pt 4pt 0pt;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Infoboxes
+----------------------------------------------------------------------------------------------- */
+p.InfoboxTitle {
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 6px 4px 6px 2px;
+}
+
+p.InfoboxTitleVar1 {
+	font-size: 10pt;
+	font-weight: bold;
+	color: #5A7C14;
+	margin: 6px 4px 6px 2px;
+}
+
+a.InfoboxTitle {
+	color: #990033;
+	font-weight: bold;
+}
+
+.InfoboxTitle { /*color: #990000; (dunkelrot)*/
+	/*color: #990033; (dunkelrot desaturiert)*/
+	color: #990033;
+	font-weight: bold;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Channel-Footer
+----------------------------------------------------------------------------------------------- */
+a.ChannelFooter {
+	color: #999999;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+p.ChannelFooter {
+	color: #999999;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	margin: 1pt 1pt;
+}
+
+a.Quicklink {
+	color: #999999;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+p.Quicklink {
+	color: #999999;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal
+}
+
+a.SiteInformation {
+	color: #990000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+p.SiteInformation {
+	color: #990000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	margin: 2pt 1pt;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Actions
+----------------------------------------------------------------------------------------------- */
+a.PageActions {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	/*color: #000033; (dunkelblau)
+	color: #990033; (dunkelrot)*/
+	color: #990033;
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+p.PageActions {
+	margin: 2pt 0pt;
+}
+
+.Actions {
+	color: Gray;
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+p.Actions {
+	margin: 2pt 0pt;
+}
+
+/* -----------------------------------------------------------------------------------------------
+HTML Headings
+----------------------------------------------------------------------------------------------- */
+H1 {
+	color: #333333;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+H1,H2,H3,li,p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+H2 {
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+H3 {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Heading
+----------------------------------------------------------------------------------------------- */
+p.HeadingCategory {
+	color: Black;
+	font-size: 12pt;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a.HeadingCategory {
+	color: Black;
+	font-size: 12pt;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+p.SideboxTitle {
+	color: #000033;
+	font-size: 10pt;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Teaser
+----------------------------------------------------------------------------------------------- */
+.Teaser {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 11px;
+}
+
+p.Teaser {
+	margin: 3pt 2pt 2pt 2pt;
+	line-height: 13px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+taxname
+----------------------------------------------------------------------------------------------- */
+.Taxname {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 11px;
+}
+
+p.Taxname {
+	margin: 2pt 1pt 1pt 1pt;
+	line-height: 12px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Shop
+----------------------------------------------------------------------------------------------- */
+.Shop {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 9px;
+}
+
+td.Shop {
+	vertical-align: top;
+}
+
+p.Shop {
+	font-family: Verdana, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 10px;
+	margin: 1pt 1pt 1pt 1pt;
+	vertical-align: top;
+	line-height: 13px;
+}
+
+p.ShopTeaser {
+	margin: 2pt 2pt 2pt 2pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 9px;
+	line-height: 13px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Structure
+----------------------------------------------------------------------------------------------- */
+p.StructureHint {
+	color: #666666;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 14px;
+	margin: 3pt 1pt 1pt 3pt;
+	border-bottom: 1px solid #FF0099;
+}
+
+td.StructureHint { /*background-color : #B6BAAC;*/
+	background-color: #FFFFFF;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Other HTML Tags
+----------------------------------------------------------------------------------------------- */
+ul {
+	margin-top: 2px;
+}
+
+ol,li {
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	margin: 0px 0px 0px 2px;
+}
+
+p.classify {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 3px 0px 2px 4px;
+}
+
+.classify {
+	color: #990033;
+	font-weight: bold;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Images
+----------------------------------------------------------------------------------------------- */
+.ImageTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 9px;
+}
+
+p.ImageTitle {
+	margin: 3pt 2pt 2pt 2pt;
+	line-height: 11px;
+}
+
+/* -----------------------------------------------------------------------------------------------
+Plates
+----------------------------------------------------------------------------------------------- */
+.PlateTitle {
+	color: #000000;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 14px;
+	margin: 6pt 1pt 1pt 3pt;
+}
+
+table.image_left {
+	margin: 0pt 10pt 10pt 0pt;
+}
+
+table.image_right {
+	margin: 0pt 0pt 10pt 10pt;
+}
+
+/* -----------------------------------------------------------------------------------------------
+DataPaging
+----------------------------------------------------------------------------------------------- */
+#forumHeadPanel {
+	background-color: #FFDDFF;
+	}
+	
+div.dpArea {
+	position: top;
+	height: 50px;
+	border: solid 1px;
+	color: red;
+	background-color: lightgrey;
+	}
+	
+div.dpTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	margin: 0px 0px 0px 2px;
+	font-weight: bold;
+	}
+	
+div.dpFirst {
+	background-color: #EEFFFF;
+	}
+
+div.dpNext {
+	background-color: #FFFFEE;
+	}
+
+div.dpLast {
+	background-color: #FFEEFF;
+	}
+		
+p.dpTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	margin: 0px 0px 0px 2px;
+	font-weight: bold;
+}
+
+p.dpLinkSelected {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	margin: 0px 0px 0px 2px;
+	text-decoration: underline;
+}
+
+a.dpLink {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: #990033;
+	font-weight: normal;
+}
+
+a.dpLink:hover {
+	text-decoration: underline;
+}
+
+/* -----------------------------------------------------------------------------------------------
+DataPaging
+----------------------------------------------------------------------------------------------- */
+.forumNote {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: black;
+	margin: 0px 0px 0px 0px
+}
+
+/* -----------------------------------------------------------------------------------------------
+Displaytag
+----------------------------------------------------------------------------------------------- */
+
+
+/* Test: anderer Style */
+
+.tmd {
+	color: black;
+   	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+table.tmd {
+	margin: 20px 0 20px 0;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+table.tmd thead tr th {
+	color: black;
+	background-color: #db8;
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+table.tmd tr.even {
+	background-color: #fff;
+}
+table.tmd tr.odd {
+	background-color: #cfc;
+}
+
+table.tmd td, table.tmd th {
+	border: 1px solid #ccc;
+	font-size: 10px;
+   	font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+
+
+.its {
+	color: blue;
+   	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+
+table.its {
+	margin: 20px 0 20px 0;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+table.its thead tr {
+	background-color: #69c;
+}
+
+table.its tr.even {
+	background-color: #def;
+}
+
+table.its tr.odd {
+	background-color: #aff;
+}
+
+
+
+table.mars thead tr {
+	background-color: #9c9;
+}
+
+table.mars tr.even {
+	background-color: #ccb;
+}
+
+table.mars tr.odd {
+	background-color: #eec;
+}
+
+
+/* -----------------------------------------------------------------------------------------------
+Bildtafeln
+----------------------------------------------------------------------------------------------- */
+
+table.Gallery2 {
+	/*background-color: #F5F8FD*/
+	/*background-color: #E5EAF6*/
+	background-color: #DDDDDD;
+}
+
+td.Gallery2 {
+ 	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	color : #263B7B;
+	font-weight: normal;
+	font-size : 9px;
+}
+
+/*------ css ------------------------------*/
+
+.plate-image-box {
+   width:174px;
+   height:226px;
+   padding:2px;
+   background-color:#EEE;
+   margin:0px;
+   border:1px solid #0000EE;
+}
+
+.plate-image-innerbox {
+   width:174px;
+   height:174px;
+   padding:0;
+   background-color:#666;
+   text-align:center;
+   vertical-align:middle;
+   margin:auto;
+   border:0px solid #0000EE;
+}
+
+.plate-image-info {
+   width:174px;
+   height:30px;
+   background-color:#444;
+   font-family: Arial, sans-serif;
+   font-size: 0.8em;
+   color: #fff;
+   margin: 0;
+   border: 0;
+   padding: 0;
+	 }
+	 
+.plate-image-info2 {
+   width:174px;
+   height:18px;
+   padding-bottom:2px;
+   background-color:#666;
+   font-family: Arial, sans-serif;
+   vertical-align:middle;
+   font-size:8pt;
+   margin:0px;
+   border:0px;
+}
+
+table.plate-image-info td {
+	 margin: 0;
+	 padding: 0;
+   font-family: Arial, sans-serif;
+   font-size: 1em;
+   color:#fff;
+	}
+
+
+/* -----------------------------------------------------------------------------------------------
+Displaytag
+----------------------------------------------------------------------------------------------- */
+
+.displaytag {
+	color: black;
+ 	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.displaytag {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table.displaytag thead tr th {
+	background-color: #eee;
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;
+	font-size: 0.9em;
+	font-weight: normal;
+}
+
+table.displaytag tr.even {
+	background-color: #F9ECB9;
+}
+table.displaytag tr.odd {
+	background-color: #FEFFC3;
+}
+
+table.displaytag td, table.displaytag th {
+	padding: 2px 1px 2px 1px;
+	border: 1px solid #ccc;
+	font-size: 0.8em;
+ 	font-family: Arial, Helvetica, sans-serif;
+ 	border-collapse: collapse; 	
+ 	color: black;
+}
+
+table.displaytag th.order1 {
+	color: #3300FF;
+}
+table.displaytag th.order2 {
+	color: #3300FF;
+}
+table.displaytag th.sorted {
+	color: #3300FF;
+}
+table.displaytag th.sortable {
+	color: #FF0033;
+}
+
+.pagebanner {
+padding: 2px 2px 2px 2px;
+margin-top: 5px;
+margin-bottom: 5px;
+background: #eee;
+		}
+
+.pagelinks {
+margin: 5px 5px 5px 5px;	
+padding: 2px 2px 2px 2px;
+background: #eee;
+border:1px solid #ccc; 
+}
+
+
+span.export.displaytag {
+	margin: 5px 5px 5px 5px;
+	padding: 0 4px 1px 20px;
+	display: inline;
+	cursor: pointer;
+  background: #eea;
+}
+
+
+
+span.pagebanner.displaytag {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	width: 79%;
+	margin-top: 10px;
+	display:block;
+	border-bottom: none;
+}
+
+span.pagelinks.displaytag {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	width: 79%;
+	display:block;
+	border-top: none;
+	margin-bottom: -5px;
+}
+
+/*------------------------------*/
+   
+.choice {
+	font-size: 0.8em;
+	color: red;
+	font-weight: bold;
+}
+
+.filterSettings {
+padding: 3px 3px 3px 3px;
+background: #EEE;
+font: 0.9em Verdana, sans-serif;
+border:1px solid #ccc; 
+}
+
+p.filterSettings {
+	font-size: 0.8em;
+	color: black;
+	}
+
+h2.filterSettings{
+	font-size: 0.8em;
+	color: black;
+	font-weight: bold;
+		
+	}
+h3.filterSettings{
+	font-size: 0.8em;
+	color: red;
+	font-weight: bold;
+		
+	}
+
+
+.panelActions {
+	margin-right: 20px;
+	padding: 5px;
+	text-align: right;
+	}
+	
+/*----------------- jobs ------------------------*/
+
+#jobs {
+   width: 600px;
+   padding:5px;
+   margin:5px;
+}
+#jobs p {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+	 font-size: 0.9em;
+	 line-height: 1.2em;
+   padding:2px;
+   margin:2px;
+}	
+#jobs-id {
+	 background: #AEE;
+	 float: left; 
+	 width: 200px;
+	 padding:3px;
+}
+#jobs-projekt {
+	 background: #EAE;
+	 float: right; 
+	 width: 200px;
+	 padding:3px;
+}
+#jobs-thema {
+	 clear: both;
+	 background: #EEA;
+	 padding:3px;
+}
+#jobs-status {
+	 background: #AEA;
+	 padding:3px;
+}
+#jobs-buttons {
+	 background: #EEE;
+	 padding:3px;
+}
+
+/* -- f�r ajax-upload --*/
+contentDiv { font-family:arial;font-size:14px; }
+.error { color:red;font-weight:bold;}
+
+/* multimedia-files */
+
+/* page layout */
+div.heading {
+    padding: 4px; 
+    font-weight: bold; 
+    text-align: center; 
+    border: 1px solid #ccc;
+}
+
+
+/* object stuff */
+.mediaplugin {
+    margin: 0px;
+    padding: 4px;
+    border: 1px dotted #ccc;
+    overflow: visible;
+}
+
+/* 'get plugin' links */
+a.plugin {
+    text-decoration: underline;
+}
+
+#multimedia {
+	top:20px;
+	margin-left:220px;
+}
+
+
+/* -- maps-plate --*/
+
+.plate-map-container {
+   float:left;
+   padding:2px;
+}
+
+.plate-map-box {
+   width:210px;
+   height:340px;
+   padding:2px;
+   background-color:#eee;
+   margin:0px;
+   border:1px solid #0000EE;
+}
+
+.plate-map-innerbox {
+   height:290px;
+   padding:0;
+   background-color:#fff;
+   text-align:center;
+   vertical-align:middle;
+   margin:auto;
+   border:0px solid #0000EE;
+}
+
+.plate-map-info-top {
+   height:40px;
+   background-color:#eee;
+   font-family: Arial, sans-serif;
+   font-size: 0.9em;
+   color: #666;
+   margin: 0;
+   border: 0;
+   padding: 0;
+	 }
+
+.plate-map-info-bottom {
+   height:1.2em;
+   background-color:#eee;
+   font-family: Arial, sans-serif;
+   font-size: 0.9em;
+   color: #666;
+   margin: 0;
+   border: 0;
+   padding: 0;
+	 }	 
+	 
+
+/*---   F�r pagecontrol ---*/
+
+.navlist
+{
+padding: 0 1px 1px;
+margin-left: 0;
+font: bold 12px Verdana, sans-serif;
+background: #CCC;
+width: 14em;
+}
+
+.navlist li
+{
+list-style: none;
+margin: 0;
+border-top: 1px solid gray;
+text-align: left;
+}
+
+.navlist li a
+{
+display: block;
+padding: 0.25em 0.5em 0.25em 0.75em;
+border-left: 1em solid #AAB;
+background: #CCD;
+text-decoration: none;
+}
+
+.navlist li a:link { color: #448; }
+.navlist li a:visited { color: #222; }
+.navlist li a:link:focus{ color:#DDD;}
+
+.navlist li a:hover
+{
+border-color: #FE3;
+color: #FFF;
+background: #332;
+}
+
+/*-- member-download --*/
+ul.downloadList {list-style-type:none;}
+
+
+/*css-templates */
+
+
+#main_twocol {
+   top:0px;
+   left:0px;
+}
+
+#left {
+   position:absolute;
+   top:0px;
+   left:0px;
+   width:195px;
+   padding:3px;
+   margin:0px;
+   background-color: #eaeaea;
+   border:0px solid #0000EE;
+}
+	 
+/* History */
+
+th.history
+	{
+	color:#FFFFFF; background-color:#FF0000;
+	}
+
+
+tr.even td
+	{
+	color:#CCCCCC; background-color:#F6F7E7;
+	}
+
+tr.odd td
+	{
+	color:#CCCCCC; background-color:#FFFFFF;
+	}	 
+	
+/* -----------------------------------------------------------------------------------------------
+Taxaliste Pagecontrol 22.3.2010
+----------------------------------------------------------------------------------------------- */
+ul.taxalist {
+	list-style-type: none; 
+	padding-left: 0; 
+	margin-left: 0; 
+	border-bottom: 1px solid #555;
+	}
+	
+li.taxalist {
+	border-bottom: 1px dotted #555;
+	}	
+li.taxalist:hover {
+	background: #dddddd;
+}	
+li.dispgroup {
+	font-weight: bold;
+	font-size: 11pt;
+	padding-top: 2pt;
+	padding-bottom: 2pt;
+	margin-bottom: 3pt;
+	margin-top: 5pt;
+	}	
+p.sciencename {
+	font-style: italic;
+	font-size: 8pt;
+	color: black;
+	}	
+	
+/* -----------------------------------------------------
+Navigations-Pagecontrol, z.B. im Admin-Bereich
+-------------------------------------------------------*/
+ul.navVerticalList {
+	list-style-type: none; 
+	padding-left: 2px; 
+	margin-left: 2px; 
+	border-bottom: 1px solid #555;
+	}
+li.listHeading {
+	font-weight: bold;
+	font-size: 1.0em;
+	padding-top: 2pt;
+	padding-bottom: 2pt;
+	margin-bottom: 3pt;
+	margin-top: 5pt;
+	}
+li.listItem {
+	border-bottom: 1px dotted #555;
+	padding-top: 2pt;
+	padding-bottom: 2pt;
+	font-size: 0.8em;
+}
+
+li.listItem:hover {
+	background: #dddddd;
+}
+
+
+/*-------------------- Transparenz                        -------------------------*/
+
+.transparentLayer {
+        filter:alpha(opacity=50);
+        -moz-opacity:0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.5;
+}
+
+/*-------------------- Login-Box  -------------------------*/
+
+/* Mask for background, by default is not display */
+#mask {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 999;
+}
+
+/* You can customize to your needs  */
+.login-popup {
+    display: none;
+    background: #333;
+    padding: 10px;
+    border: 2px solid #ddd;
+    float: left;
+    font-size: 1.2em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    box-shadow: 0px 0px 20px #999;
+    /* CSS3 */
+        -moz-box-shadow: 0px 0px 20px #999;
+    /* Firefox */
+        -webkit-box-shadow: 0px 0px 20px #999;
+    /* Safari, Chrome */
+	border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    /* Firefox */
+        -webkit-border-radius: 3px;
+    /* Safari, Chrome */;
+}
+
+img.btn_close {
+    Position the close button
+	float: right;
+    margin: -28px -28px 0 0;
+}
+
+fieldset {
+    border: none;
+}
+
+form.signin .textbox label {
+    display: block;
+    padding-bottom: 7px;
+}
+
+form.signin .textbox span {
+    display: block;
+}
+
+form.signin p, form.signin span {
+    color: #999;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+form.signin .textbox input {
+    background: #666666;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #000;
+    border-right: 1px solid #333;
+    border-top: 1px solid #000;
+    color: #fff;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    font: 13px Arial, Helvetica, sans-serif;
+    padding: 6px 6px 4px;
+    width: 200px;
+}
+
+form.signin input:-moz-placeholder {
+    color: #bbb;
+    text-shadow: 0 0 2px #000;
+}
+
+form.signin input::-webkit-input-placeholder {
+    color: #bbb;
+    text-shadow: 0 0 2px #000;
+}
+
+.button {
+    background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+    background: -o-linear-gradient(top, #f3f3f3, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+    border-color: #000;
+    border-width: 1px;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 6px 4px;
+    margin-top: 10px;
+    font: 12px;
+    width: 214px;
+}
+
+.button:hover {
+    background: #ddd;
+}
+
+/* ============= CSS-Popup =========== 19.11.13 ====== */
+
+#blanket {
+background-color:#111;
+opacity: 0.65;
+*background:none;
+position:absolute;
+z-index: 9001;
+top:0px;
+left:0px;
+width:100%;
+}
+
+#popupDiv {
+position:absolute;
+background-color: lightgrey;
+width:400px;
+height:400px;
+border:2px solid white;
+z-index: 9002;
+}
+
+/* ********** Fundmeldung Detauil ************************** */
+#detailLayer {
+	position:absolute; 
+	height:auto !important; /* real browsers */
+	height:400px; /* IE6: treaded as min-height*/
+	min-height:400px; /* real browsers */
+	background-color: white;
+	z-index: 9009;	
+	width:600px;
+	border: 5px solid lightgreen;
+	padding: 3px 3px 3px 3px;
+	top: 120px;
+}
+
+div#detailContent {
+	height: 100%;
+}
+
+/* ********** Ampel-Vergabe ************************** */
+
+#qseditLayer {
+position:absolute;
+background-color: lightgrey;
+	z-index: 9010;
+			width:600px;
+height:400px;
+top: 100px;
+left:50px;
+	border: 2px solid grey;
+}
+
+/* ********** Karte ************************** */
+
+#geocodingLayer {
+	background-color: white;
+	position:absolute;
+	z-index: 9011;
+	width:600px;
+	border: 2px solid grey;
+height:400px;
+top: 100px;
+left:50px;	
+}
+
+/* ********** Visitenkarte ************************** */
+
+#memberLayer {
+	position:absolute;
+	height:auto !important; /* real browsers */
+	height:400px; /* IE6: treaded as min-height*/
+	min-height:400px; /* real browsers */
+	
+	background-color: #f9f9f9;
+	z-index: 9015;
+	border: 1px solid lightgrey;
+	padding: 3px 3px 3px 3px;
+	
+	width:500px;
+	top: 150px;
+	left:170px;
+	
+	-moz-box-shadow:2px 2px 30px #909090; /* Firefox */
+	-webkit-box-shadow:2px 2px 30px #909090; /* Chrome, Safari */
+	-khtml-box-shadow:2px 2px 30px #909090; /* Konqueror */
+	box-shadow:2px 2px 30px #909090; /* CSS3 */	
+}
+
+div#memberContent {
+	height: 100%;
+}
+
+/* ********** Species-Information ************************** */
+
+#speciessheetLayer {
+	background-color: white;
+	position:absolute;
+	z-index: 9005;
+	width:600px;
+	border: 2px solid grey;
+height:400px;
+top: 100px;
+left:50px;	
+}
+
+/* ********** Login-Layer ************************** */
+#loginLayer {
+	background-color: white;
+	position:absolute;
+	z-index: 9015;
+	width:300px;
+	border: 2px solid grey;
+height:200px;
+top: 25%;
+left:25%;	
+}
+
+div#loginContent {
+	height: 100%;
+	margin: 2px;
+	background-color: grey;
+}
+
+/* ********** Login-Layer ************************** */
+#languageLayer {
+	background-color: white;
+	position:absolute;
+	z-index: 9014;
+	width:300px;
+	border: 2px solid grey;
+height:200px;
+top: 25%;
+left:25%;	
+}
+
+div#languageContent {
+	height: 100%;
+	margin: 2px;
+	background-color: lightgrey;
+}
+
+/* ********** Fundliste Layer ************************** */
+#gathlistLayer {
+	position:absolute; 
+	height:auto !important; /* real browsers */
+	height:20%; /* IE6: treaded as min-height*/
+	min-height:20%; /* real browsers */
+	background-color: white;
+	z-index: 8009;	
+	width:600px;
+	border: 5px solid lightgreen;
+	padding: 3px 3px 3px 3px;
+	top: 120px;
+	right:10px;
+}
+
+div#gathlistContent {
+	height: 100%;
+}
+
+.closelink {
+	position:absolute;
+	right: 10px;
+}
+/* ------------------------ zentrale Nachtraege 9-2015 -------------*/
+
+div.imageframe {
+	float: left;
+	height: 220px;
+	width: auto;
+	}
+
+#speciessheetmoreimages {
+	display: none;
+}
+
+p.searchresult {
+	font-size: 10px;
+}
+
+table.searchresult {
+	border: 1px dotted grey;
+}
+
+div.searchresult {
+	margin: 2px;
+	border: 1px solid grey;
+}
+
+/* ========================== OSM ============================================= */*
+/************************************************
+*
+*	Gestaltung der Searchbox
+*
+*************************************************/
+
+.olControlSearchBox {
+	left: 120px;
+	top: 2px;
+	font-family=Arial,Helvetica,Sanserif;
+}
+
+.olControlSearchBox div.busy {
+	background: url(/j/ajax-loader.gif);
+	height: 55px;
+	width: 54px;
+}
+
+.olControlSearchBox div.failure {
+	background: red;
+	color: black;
+	font-weight: bold;
+}
+
+.olControlSearchBox div.success {
+	background: white;
+font-family=Arial,Helvetica,Sanserif;
+}
+
+.olControlSearchBox div.success.empty {
+	color: gray;
+	font-style: italic;
+}
+
+.olControlSearchBox div.success div.entry:hover {
+	background: blue;
+	color: white;
+	cursor: pointer;
+font-family=Arial,Helvetica,Sanserif;
+}
+
