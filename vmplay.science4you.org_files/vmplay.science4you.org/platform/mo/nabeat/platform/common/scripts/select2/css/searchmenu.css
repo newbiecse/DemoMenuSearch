@@ -19,3 +19,11 @@ ul.taxalist > li.active {
     font-size: 8pt;
     color: black;
 }
+
+.select2-container--default .select2-selection--single {
+	border-color: #FF6600;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #FF6600;
+}
