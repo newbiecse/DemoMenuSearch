@@ -67,6 +67,7 @@ SearchMenu = function () {
 
 			$('#taxalistsearch').select2({
 				language: options.language,
+				minimumInputLength: 2,
 				placeholder: options.placeholder,
 				dropdownAutoWidth: true,
   				data: data,
