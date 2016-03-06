@@ -94,8 +94,8 @@ SearchMenu = function () {
 				}  				  				
 			}).on('change', function (e) {
 
-				// var baseUrl = window.location.origin;
-				var baseUrl = 'http://vmplay.science4you.org/';
+				var baseUrl = window.location.origin;
+				// var baseUrl = 'http://vmplay.science4you.org/';
 				var navigateUrl = $(this).select2('data')[0].url;
 				
 				if (typeof navigateUrl != 'undefined') {
