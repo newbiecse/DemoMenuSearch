@@ -2,6 +2,10 @@
 	width: 220px;
 }
 
+ul.taxalist > li.active {
+	background-color: #99cc00
+}
+
 .taxa-name {
 	color: #996633;
     font-family: Verdana, Arial, Helvetica, sans-serif;
