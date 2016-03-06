@@ -26,7 +26,8 @@
       <!-- Colorbox default -->
       <link rel="stylesheet" type="text/css" href="platform/common/scripts/colorbox/colorbox.css">
       <!-- select2 default -->
-      <link rel="stylesheet" type="text/css" href="platform/common/scripts/select2/css/select2.css">      
+      <link rel="stylesheet" type="text/css" href="platform/common/scripts/select2/css/select2.css">
+      <link rel="stylesheet" type="text/css" href="platform/common/scripts/select2/css/searchmenu.css">      
       <!-- End_Style -->
       <!-- Begin_Head -->
       <script language="JavaScript" src="platform/common/scripts/authortools.js"></script>
@@ -48,7 +49,9 @@
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/searchmenu.js"></script>
       <script language="JavaScript" type="text/javascript">
          $(function(){
-            SearchMenu.init();
+            SearchMenu.init({
+               placeholder: 'Select menu'
+            });
          });
       </script>
       <script type="text/javascript">
@@ -301,9 +304,8 @@
                class="threeCol">
 
                <div>
-                  <input style="display: none" type="text" size="27" />
                   <select id="dropdowncategory">
-                     <option>Select menu</option>
+                     <option></option>
                   </select>
                </div>
 

@@ -1,0 +1,17 @@
+#dropdowncategory {
+	width: 220px;
+}
+
+.taxa-name {
+	color: #996633;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 15px;
+    margin: 0px 0px 0px 2px;	
+}
+
+.taxa-description {
+	font-style: italic;
+    font-size: 8pt;
+    color: black;
+}

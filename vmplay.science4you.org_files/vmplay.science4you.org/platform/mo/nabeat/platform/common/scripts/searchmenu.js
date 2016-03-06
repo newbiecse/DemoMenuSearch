@@ -13,7 +13,7 @@ SearchMenu = function () {
 
 			var $this = $(this);
 
-			var text = $this.find('a > p:first').text();
+			var name = $this.find('a > p:first').text();
 			var description = $this.find('.sciencename').text();
 			var url = $this.find('a').attr('href');
 
@@ -30,7 +30,8 @@ SearchMenu = function () {
 
 			data.push({
 				id: id,
-				text: text,
+				text: name + description,
+				name: name,
 				description: description,
 				url: url
 			});
@@ -60,14 +61,36 @@ SearchMenu = function () {
 
 	return {
 
-		init: function() {
+		init: function(options) {
 			
 			dataBuilder();
 
 			$('#dropdowncategory').select2({
+				placeholder: options.placeholder,
+				dropdownAutoWidth: true,
   				data: data,
-				placeholder: "Select menu",
-  				allowClear: true  				
+  				templateSelection: function (data) {
+
+  					if (data.id == "") {
+  						return options.placeholder;
+  					}
+
+  					return data.name;
+  				},
+				templateResult: function (data) {
+					
+				    if (data.id === "") {
+				      return options.placeholder;
+				    }
+
+				    return '<table><tr><td>' + 
+				    			'<h5 class="taxa-name">' + data.name + '</h5>' +
+				    			'<h5 class="taxa-description">' + data.description + '</h5>' +
+				    		'</td></tr></table>';
+				},							  				
+				escapeMarkup: function(m) {
+					return m;
+				}  				  				
 			}).on('change', function (e) {
 
 				var baseUrl = 'http://vmplay.science4you.org/';
