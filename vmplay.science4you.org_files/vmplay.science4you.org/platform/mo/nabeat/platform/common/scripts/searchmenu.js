@@ -65,7 +65,8 @@ SearchMenu = function () {
 			
 			dataBuilder();
 
-			$('#dropdowncategory').select2({
+			$('#taxalistsearch').select2({
+				language: options.language,
 				placeholder: options.placeholder,
 				dropdownAutoWidth: true,
   				data: data,
@@ -78,7 +79,7 @@ SearchMenu = function () {
   					return data.name;
   				},
 				templateResult: function (data) {
-					
+
 				    if (data.id === "") {
 				      return options.placeholder;
 				    }

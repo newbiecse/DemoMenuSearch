@@ -46,11 +46,14 @@
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/jquery/jquery.form.js"></script>
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/colorbox/jquery.colorbox-min.js"></script>
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/select2/js/select2.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/select2/js/i18n/en.js"></script>
+      <script language="JavaScript" type="text/javascript" src="platform/common/scripts/select2/js/i18n/de.js"></script>
       <script language="JavaScript" type="text/javascript" src="platform/common/scripts/searchmenu.js"></script>
       <script language="JavaScript" type="text/javascript">
          $(function(){
             SearchMenu.init({
-               placeholder: 'Select menu'
+               placeholder: 'Select menu', // TODO: get from resource file
+               language: 'de'// TODO: use java get current language
             });
          });
       </script>
@@ -304,7 +307,7 @@
                class="threeCol">
 
                <div>
-                  <select id="dropdowncategory">
+                  <select id="taxalistsearch">
                      <option></option>
                   </select>
                </div>
