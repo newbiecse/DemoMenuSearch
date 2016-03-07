@@ -24,6 +24,10 @@ ul.taxalist > li.active {
 	border-color: #FF6600;
 }
 
+.select2-selection--multiple {
+    border-color: #FF6600 !important;
+}
+
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
     color: #FF6600;
 }
